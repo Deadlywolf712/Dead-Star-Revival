@@ -1,0 +1,8 @@
+r_renderer="needle";
+renderConsoleOutput=0;
+renderConsoleMessages=0;
+needle_useMatchmaker=true;
+needle_DemoMode=0;
+needle_EnableClientReadyMatchStartClient=false;
+needle_EnableClientReadyMatchStartServer=false;
+capitalShipEnable=true;

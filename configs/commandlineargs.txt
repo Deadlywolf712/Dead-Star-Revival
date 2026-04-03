@@ -1,0 +1,1 @@
+-vf $/GameScriptVars.txt -d $/needle_win.bpdeps -i $/needle/loaders/startup.sgpr -l $/needle/ui/loadingscreen/scripts/initial_loading_screen.sgpr
