@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/labstack/echo/v4"
 )
@@ -13,7 +14,7 @@ func handleGetMessages(c echo.Context) error {
 	return c.JSON(http.StatusOK, MessagesResponse{
 		LoginMessage:    "Welcome to Dead Star Revival!",
 		MessageOfTheDay: "Community-run servers. Join the Discord!",
-		Date:            "2026-04-03",
+		Date:            time.Now().Format("2006-01-02"),
 	})
 }
 

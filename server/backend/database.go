@@ -43,6 +43,8 @@ func (d *Database) migrate() error {
 		created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 		updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 	);
+	CREATE INDEX IF NOT EXISTS idx_accounts_session ON accounts(session_id);
+	CREATE INDEX IF NOT EXISTS idx_accounts_steam ON accounts(steam_id);
 
 	CREATE TABLE IF NOT EXISTS servers (
 		id TEXT PRIMARY KEY,
@@ -63,16 +65,18 @@ func (d *Database) migrate() error {
 		team INTEGER,
 		expires_at DATETIME
 	);
+	CREATE INDEX IF NOT EXISTS idx_reservations_account ON reservations(account_id);
 
 	CREATE TABLE IF NOT EXISTS matchmaking_queue (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		account_id INTEGER,
+		account_id INTEGER UNIQUE,
 		session_id TEXT,
 		match_type INTEGER,
 		match_size INTEGER,
 		party TEXT,
 		queued_at DATETIME DEFAULT CURRENT_TIMESTAMP
 	);
+	CREATE INDEX IF NOT EXISTS idx_queue_type_size ON matchmaking_queue(match_type, match_size);
 	`
 	_, err := d.db.Exec(schema)
 	return err
@@ -82,26 +86,36 @@ func (d *Database) Close() error {
 	return d.db.Close()
 }
 
-// defaultAccountData creates a new player with all 12 ships unlocked.
+// defaultAccountData creates a new player with ALL ships unlocked,
+// including DLC and hidden ships. We go up to type 20 to cover:
+//   0-11: Base ships (Scout/Raider/Frigate x Combat/Mining/Production/Research)
+//   12+:  DLC ships (Ordo Robots Pack, Kurg Ship Expansion, hidden ships)
+// Extra types that don't exist in-game are harmlessly ignored.
 func defaultAccountData(accountId uint64) *CCoreAccountData {
-	loadouts := make([]Loadout, 12)
-	for i := 0; i < 12; i++ {
+	loadouts := make([]Loadout, 20)
+	for i := 0; i < 20; i++ {
 		loadouts[i] = Loadout{
 			ShipType: i,
 		}
+	}
+
+	// Unlock a generous set of portraits (including hidden ones)
+	portraits := make([]int, 30)
+	for i := 0; i < 30; i++ {
+		portraits[i] = i
 	}
 
 	return &CCoreAccountData{
 		AccountId:          accountId,
 		SessionId:          "",
 		CurrentPortraitId:  0,
-		PortraitIds:        []int{0},
+		PortraitIds:        portraits,
 		IsDevAccount:       false,
 		Fame:               0,
 		FameTotal:          0,
 		FameCategoryLimits: []int{},
 		FameRatio:          0.0,
-		IsDLC:              false,
+		IsDLC:              true, // Enable DLC content
 		Loadouts:           loadouts,
 	}
 }
@@ -125,7 +139,10 @@ func (d *Database) GetOrCreateAccount(steamId string) (*CCoreAccountData, error)
 		id, _ = res.LastInsertId()
 
 		acct := defaultAccountData(uint64(id))
-		acctJSON, _ := json.Marshal(acct)
+		acctJSON, merr := json.Marshal(acct)
+		if merr != nil {
+			return nil, fmt.Errorf("marshal default account data: %w", merr)
+		}
 		_, err = d.db.Exec("UPDATE accounts SET account_data = ? WHERE id = ?", string(acctJSON), id)
 		if err != nil {
 			return nil, fmt.Errorf("save default account data: %w", err)
@@ -144,6 +161,19 @@ func (d *Database) GetOrCreateAccount(steamId string) (*CCoreAccountData, error)
 	}
 	acct.AccountId = uint64(id)
 	return acct, nil
+}
+
+// GetActiveSession returns the current session for an account, or "" if none.
+func (d *Database) GetActiveSession(accountId uint64) string {
+	d.mu.RLock()
+	defer d.mu.RUnlock()
+
+	var sessionId sql.NullString
+	d.db.QueryRow("SELECT session_id FROM accounts WHERE id = ?", accountId).Scan(&sessionId)
+	if sessionId.Valid {
+		return sessionId.String
+	}
+	return ""
 }
 
 func (d *Database) UpdateSession(accountId uint64, sessionId string) error {
@@ -282,6 +312,28 @@ func (d *Database) GetReservation(reservationId string) (*Reservation, error) {
 		res.ExpiresAt = t.Unix()
 	}
 	return &res, nil
+}
+
+// RemoveExpiredReservations cleans up reservations past their expiry time.
+func (d *Database) RemoveExpiredReservations() error {
+	d.mu.Lock()
+	defer d.mu.Unlock()
+
+	_, err := d.db.Exec("DELETE FROM reservations WHERE expires_at < CURRENT_TIMESTAMP")
+	return err
+}
+
+// RemoveStaleQueueEntries removes players who have been in queue for too long
+// without being matched (they probably disconnected).
+func (d *Database) RemoveStaleQueueEntries(timeout time.Duration) error {
+	d.mu.Lock()
+	defer d.mu.Unlock()
+
+	_, err := d.db.Exec(
+		"DELETE FROM matchmaking_queue WHERE queued_at < datetime('now', ?)",
+		fmt.Sprintf("-%d seconds", int(timeout.Seconds())),
+	)
+	return err
 }
 
 func (d *Database) AddToMatchQueue(accountId uint64, sessionId string, matchType, matchSize int, party string) error {

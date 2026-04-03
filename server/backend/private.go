@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -9,13 +11,28 @@ import (
 
 // handleReservations handles POST /api/private/:version/reservations
 // Game servers send reservation requests when matchmaking assigns players to a server.
+// Accepts either a single Reservation object or an array of Reservations.
 func handleReservations(c echo.Context) error {
-	var reservations []Reservation
-	if err := c.Bind(&reservations); err != nil {
+	body, err := io.ReadAll(c.Request().Body)
+	if err != nil {
 		return c.JSON(http.StatusBadRequest, ApiResponse{
 			Success: false,
-			Error:   "Invalid reservation payload",
+			Error:   "Failed to read request body",
 		})
+	}
+
+	var reservations []Reservation
+
+	// Try array first, then single object
+	if err := json.Unmarshal(body, &reservations); err != nil {
+		var single Reservation
+		if err2 := json.Unmarshal(body, &single); err2 != nil {
+			return c.JSON(http.StatusBadRequest, ApiResponse{
+				Success: false,
+				Error:   "Invalid reservation payload: expected object or array",
+			})
+		}
+		reservations = []Reservation{single}
 	}
 
 	for i := range reservations {

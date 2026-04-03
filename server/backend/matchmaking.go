@@ -171,10 +171,8 @@ func handleMatchmakeProgress(c echo.Context) error {
 	// Check if this player has been matched.
 	if val, ok := matchedPlayers.Load(account.AccountId); ok {
 		result := val.(MatchResult)
-		// Clean up: remove from matched map after retrieval so it doesn't linger forever.
-		// The client will get the address once and connect; subsequent polls after connection
-		// aren't expected, but if they happen we'll just return "searching" again.
-		matchedPlayers.Delete(account.AccountId)
+		// Don't delete immediately — the client may poll multiple times (network retry).
+		// The 2-minute expiry in runMatchmakingCycle handles cleanup.
 		queueTracker.Delete(account.AccountId)
 		return c.JSON(http.StatusOK, MatchmakeResponse{
 			Status:  "found",

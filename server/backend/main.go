@@ -40,6 +40,7 @@ func main() {
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(middleware.BodyLimit("1M")) // Prevent OOM from oversized requests
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
 		AllowMethods: []string{http.MethodGet, http.MethodPost, http.MethodPut, http.MethodDelete, http.MethodOptions},
@@ -78,12 +79,14 @@ func main() {
 	// Start background matchmaking loop
 	startMatchmaker()
 
-	// Background cleanup of stale servers
+	// Background cleanup of stale data
 	go func() {
 		ticker := time.NewTicker(30 * time.Second)
 		defer ticker.Stop()
 		for range ticker.C {
 			db.RemoveStaleServers(2 * time.Minute)
+			db.RemoveExpiredReservations()
+			db.RemoveStaleQueueEntries(10 * time.Minute)
 		}
 	}()
 

@@ -3,10 +3,11 @@ package main
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"strings"
+	"sync"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
@@ -40,24 +41,53 @@ func steamIdFromTicket(ticket string) string {
 // handleAuthenticate handles POST /api/public/:version/authenticate
 // This is the primary login endpoint. The game sends a Steam auth ticket
 // and receives back a session token + full account data.
+// authRateLimit tracks recent auth attempts per IP to prevent spam
+var authRateLimit sync.Map // IP -> *rateLimitEntry
+
+type rateLimitEntry struct {
+	count    int
+	resetAt  time.Time
+}
+
 func handleAuthenticate(c echo.Context) error {
-	version := c.Param("version")
-	if version != BuildVersion {
-		return c.JSON(http.StatusBadRequest, ApiResponse{
+	// Reject oversized bodies (prevent OOM from malicious payloads)
+	if c.Request().ContentLength > 65536 {
+		return c.JSON(http.StatusRequestEntityTooLarge, ApiResponse{
 			Success: false,
-			Error:   fmt.Sprintf("Version mismatch: expected %s, got %s", BuildVersion, version),
+			Error:   "Request body too large",
 		})
 	}
+
+	// Rate limit: max 10 auth attempts per IP per minute
+	clientIP := c.RealIP()
+	now := time.Now()
+	if entry, ok := authRateLimit.Load(clientIP); ok {
+		rl := entry.(*rateLimitEntry)
+		if now.Before(rl.resetAt) {
+			rl.count++
+			if rl.count > 10 {
+				return c.JSON(http.StatusTooManyRequests, ApiResponse{
+					Success: false,
+					Error:   "Too many auth attempts. Wait 60 seconds.",
+				})
+			}
+		} else {
+			rl.count = 1
+			rl.resetAt = now.Add(60 * time.Second)
+		}
+	} else {
+		authRateLimit.Store(clientIP, &rateLimitEntry{count: 1, resetAt: now.Add(60 * time.Second)})
+	}
+
+	// NOTE: c.Param("version") is the API version from the URL (e.g. "v1"),
+	// NOT the game build version. We accept any API version — the game knows
+	// what version to send. Do NOT compare against BuildVersion here.
 
 	// The client sends auth fields as JSON or query params.
 	// Known fields: PlatformCode, PlatformAuth, ClientVersion, Region, EnvironmentId, Locale
 	var req AuthRequest
-	body := c.Request().Body
-	defer body.Close()
-
-	decoder := json.NewDecoder(body)
-	if err := decoder.Decode(&req); err != nil {
-		// Try reading from query params as fallback
+	if err := c.Bind(&req); err != nil {
+		// JSON parse failed — try reading from query params as fallback
 		req.PlatformAuth = c.QueryParam("PlatformAuth")
 		req.PlatformCode = c.QueryParam("PlatformCode")
 		req.ClientVersion = c.QueryParam("ClientVersion")
@@ -87,7 +117,10 @@ func handleAuthenticate(c echo.Context) error {
 		})
 	}
 
-	// Generate a new session token
+	// Check if there's an existing active session (another client using this account)
+	oldSession := db.GetActiveSession(account.AccountId)
+
+	// Generate a new session token — this invalidates any previous session
 	sessionId := uuid.New().String()
 
 	// Persist the session
@@ -100,7 +133,11 @@ func handleAuthenticate(c echo.Context) error {
 
 	account.SessionId = sessionId
 
-	fmt.Printf("Player authenticated: AccountId=%d, SteamId=%s\n", account.AccountId, steamId)
+	if oldSession != "" {
+		fmt.Printf("Player authenticated: AccountId=%d, SteamId=%s (previous session invalidated)\n", account.AccountId, steamId)
+	} else {
+		fmt.Printf("Player authenticated: AccountId=%d, SteamId=%s\n", account.AccountId, steamId)
+	}
 
 	return c.JSON(http.StatusOK, AuthResponse{
 		SessionId:   sessionId,
