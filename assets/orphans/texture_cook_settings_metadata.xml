@@ -1,0 +1,16 @@
+<UsingPropertyContainer containerVersion="2" id="TXTR" name="MetaData">
+  <UsingComponentGroup id="TXTR" name="CookSettings" activeComponent="Default">
+    <UsingComponent>
+      <UsingProperty name="Format">
+        <Value>kDXT5</Value>
+      </UsingProperty>
+      <UsingProperty name="GenerateMipmaps">
+        <Value>false</Value>
+      </UsingProperty>
+      <UsingProperty name="VitaForceYVU420">
+        <Value />
+      </UsingProperty>
+    </UsingComponent>
+  </UsingComponentGroup>
+  <UsingComponentGroup id="TXTR_CTR" name="CookSettings_CTR" activeComponent="CTR" />
+</UsingPropertyContainer>

@@ -49,23 +49,25 @@ func handleAuthenticate(c echo.Context) error {
 		})
 	}
 
-	// The client may send either a structured AuthRequest or a raw ticket string.
-	// Read the body and try to parse as JSON first.
+	// The client sends auth fields as JSON or query params.
+	// Known fields: PlatformCode, PlatformAuth, ClientVersion, Region, EnvironmentId, Locale
 	var req AuthRequest
 	body := c.Request().Body
 	defer body.Close()
 
 	decoder := json.NewDecoder(body)
 	if err := decoder.Decode(&req); err != nil {
-		// If JSON parsing fails, the body might be a raw ticket string.
-		// Re-read isn't possible after stream consumption, so treat as error.
-		return c.JSON(http.StatusBadRequest, ApiResponse{
-			Success: false,
-			Error:   "Invalid request body: expected JSON with Ticket field",
-		})
+		// Try reading from query params as fallback
+		req.PlatformAuth = c.QueryParam("PlatformAuth")
+		req.PlatformCode = c.QueryParam("PlatformCode")
+		req.ClientVersion = c.QueryParam("ClientVersion")
 	}
 
-	ticket := req.Ticket
+	// Accept PlatformAuth as the ticket (Steam auth ticket)
+	ticket := req.PlatformAuth
+	if ticket == "" {
+		ticket = req.Ticket // fallback to old field name
+	}
 	if ticket == "" {
 		return c.JSON(http.StatusBadRequest, ApiResponse{
 			Success: false,

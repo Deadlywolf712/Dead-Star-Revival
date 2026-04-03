@@ -1,0 +1,131 @@
+======================================================================
+POSS File: entry_00052.poss
+======================================================================
+Magic:        POSS30RV
+String Count: 4
+
+--- Resource Paths (2) ---
+  [cgpr] $/needle/network/server/_win/server_internal.cgpr
+  [cfon] $/enginesupport/fonts/_win/console.cfon
+
+--- Events/Names (1) ---
+  Server Menu
+
+--- Object Hierarchy ---
+Object: 'NetSyncHost'
+  GUID: 9d4c7dd6-ce84-4cca-8ec5-6abcf75e5dca
+  Version: 6, Total Components in Tree: 9
+  Field A: 0, Field B: 5
+  Component:
+    Type Hash: 0xc029451e
+    GUID: e890eff6-cde6-4986-9bec-f8eb65c8b80f
+    Editor ID: 610077e76de0510001
+    Body Size: 339 bytes
+    Transform:
+      [    1.0000     0.0000     0.0000     0.0000]
+      [    1.0000     0.0000     0.0000     0.0000]
+      [    1.0000    -1.3463     0.0000    -5.2979]
+  Object: 'Camera - Engine'
+    GUID: 75c8d956-eae7-4564-8075-7edd1c24468d
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 4af42f71-7a50-4f56-8d8c-d56fcc461222
+      Editor ID: 610077e76de0510001
+      Body Size: 190 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+  Object: 'Camera - Debug'
+    GUID: feffb1c9-cca5-4d73-8e48-e9ba4b56e071
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 5086e05a-dd89-4f31-a870-dbcbd7d48772
+      Editor ID: 610077e76de0510001
+      Body Size: 197 bytes
+      Transform:
+        [   -1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000    -0.0000     0.0000]
+        [   -1.0000  -555.3600     0.0000  1062.4000]
+  Object: 'Control - Camera - Debug'
+    GUID: 21f995cc-841a-4874-bd72-cbef1d3a445e
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 24e2da3a-9289-4b14-b91c-c546ba20414d
+      Editor ID: 610077e76de0510001
+      Body Size: 325 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000  -555.3600    -0.0000  1057.2800]
+  Object: 'Camera - Game - Camera (Far)'
+    GUID: 38124fc5-748c-4290-aac4-f49f6f7a9b0d
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 2
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 0d176959-b070-46f4-a185-d45384c935f6
+      Editor ID: 610077e76de0510001
+      Body Size: 184 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    0.1305     0.9914     0.0000    -0.9914]
+        [    0.1305   -28.6498    49.0394   -29.6130]
+  Object: 'Camera - Game - Camera (Mid)'
+    GUID: f573b503-f363-474a-bea1-3125a6494af0
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 2
+    Component:
+      Type Hash: 0xc029451e
+      GUID: b6d1fc09-59af-46d1-9c12-910583d4c29f
+      Editor ID: 610077e76de0510001
+      Body Size: 184 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    0.1305     0.9914     0.0000    -0.9914]
+        [    0.1305   -28.6498    49.0394   -29.6130]
+  Object: 'Camera - Game - Camera (Near)'
+    GUID: 8cc0fb99-d51c-469f-877c-7621f5219484
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 2
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 72501c31-0afa-4e65-9819-186794d251b2
+      Editor ID: 610077e76de0510001
+      Body Size: 184 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    0.2588     0.9659     0.0000    -0.9659]
+        [    0.2588   -28.6498    49.0394   -29.6130]
+  Object: 'Camera - Game - Camera (Default)'
+    GUID: 412925bb-10eb-4339-bab8-64f563857eef
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 2
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 78050ff6-4eaa-4b33-88f9-685cd678b23e
+      Editor ID: 880077e76de0510001
+      Body Size: 223 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    0.2588     0.9659     0.0000    -0.9659]
+        [    0.2588   -28.6498    49.0394   -29.6130]
+  Object: 'Control - Camera - Ship'
+    GUID: 1cc323d0-3fda-492f-8a24-26c98087d6b2
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 4
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 08f451a9-7331-4adc-8bc3-3021e2e74d79
+      Editor ID: 610077e76de0510001
+      Body Size: 873 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000    60.6831  -196.1576    56.4775]

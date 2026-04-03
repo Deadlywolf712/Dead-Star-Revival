@@ -76,9 +76,15 @@ type MatchmakeResponse struct {
 
 // Auth request
 type AuthRequest struct {
-	Ticket       string `json:"ticket"`
-	Platform     int    `json:"platform"`
-	BuildVersion string `json:"BuildVersion"`
+	Ticket        string `json:"ticket"`
+	PlatformCode  string `json:"PlatformCode"`
+	PlatformAuth  string `json:"PlatformAuth"`
+	ClientVersion string `json:"ClientVersion"`
+	Region        int    `json:"Region"`
+	EnvironmentId int    `json:"EnvironmentId"`
+	Locale        string `json:"Locale"`
+	Platform      int    `json:"platform"`
+	BuildVersion  string `json:"BuildVersion"`
 }
 
 // Auth response

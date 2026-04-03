@@ -1,0 +1,177 @@
+; ============================================================================
+; Dead Star Revival - Optimal Server Configuration (gamescriptvars.txt)
+; ============================================================================
+; Based on binary-extracted defaults from build 1234898 (Depot 366401)
+; Tuned for 10v10 multiplayer revival server with custom backend
+; ============================================================================
+
+; --- Renderer ---
+; Required: tells engine which renderer to use
+r_renderer="needle";
+
+; Suppress console output on dedicated server (no one sees it)
+renderConsoleOutput=0;
+renderConsoleMessages=0;
+
+; --- Server Identity ---
+; Disable matchmaker (we run our own backend)
+needle_useMatchmaker=false;
+
+; Not demo/tutorial mode - this is a real multiplayer server
+needle_DemoMode=0;
+needle_IsSinglePlayer=false;
+
+; Server does not need to render the game view (dedicated server)
+needle_ServerDrawMainView=false;
+
+; Server name shown in server browser
+needle_ServerName="Dead Star Revival";
+
+; --- Network ---
+; Listen on all interfaces, port 27015 (Steam standard)
+; Binary default port was 27500, but 27015 is more firewall-friendly
+network_ServerAddress="0.0.0.0";
+network_ServerListenPort=27015;
+
+; Server tick rate (binary default: 20 Hz)
+; 20 Hz is the retail value, increase to 30 for better hit reg if CPU allows
+serverUpdateHz=20;
+
+; Network sync sleep (binary default: 5.0s)
+needle_NetworkSyncSleepTime=5.0;
+
+; --- Match Type ---
+; Conquest mode, Large size (10v10) - the revival target
+needle_MatchType=0;
+needle_MatchSize=2;
+
+; --- Match Flow ---
+; Auto-start when enough players join (binary default: true)
+needle_MatchAutoStart=true;
+
+; 90 second countdown to fill teams before match starts (binary default)
+needle_MatchCountdownTime=90.0;
+
+; 3 second final countdown (binary default)
+needle_MatchStartCountdown=3.0;
+
+; 10 second team balance window (binary default)
+needle_MatchBalanceTime=10.0;
+
+; 5 second ready time (binary default)
+needle_MatchReadyTime=5.0;
+
+; 2 second delay before server restarts after match end (binary default)
+needle_MatchFinishedRestartTime=2.0;
+
+; 20 second max wait to join (binary default)
+needle_MaxMatchJoinWaitTime=20.0;
+
+; --- Player Requirements ---
+; LOWERED for revival: original required 5/team for Large, we use 1
+; This allows matches to start with fewer players during revival
+needle_MatchMinPlayersPerTeamSmall=1;
+needle_MatchMinPlayersPerTeamMedium=1;
+needle_MatchMinPlayersPerTeamLarge=1;
+
+; Allow up to 1 player difference between teams (binary default)
+needle_MatchMaxPlayersDifference=1;
+
+; Allow up to 5 level difference (binary default)
+needle_MatchMaxLevelDifference=5;
+
+; Max squad size (binary default: 10 = full team)
+needle_MaxSquadSize=10;
+
+; Enable team shuffle for balance (binary default: true)
+needle_EnableTeamShuffle=true;
+
+; --- Connection Quality ---
+; Kick players with ping over 500ms for more than 5 seconds
+; These are the binary defaults - generous for a revival server
+needle_PingTooHighThreshold=500;
+needle_PingTooHighDropTime=5.0;
+
+; Idle timeout: 180 seconds (3 minutes), warn at 150s
+needle_IdleTimeoutTime=180.0;
+needle_IdleTimeoutTimeWarning=150.0;
+
+; Unhealthy server detection (binary defaults)
+needle_unhealthyServerKickTime=180.0;
+needle_unhealthyServerKillTimeAfterKickTime=5.0;
+
+; Out of sector grace period (binary default: 5s)
+needle_OutOfSectorTime=5.0;
+
+; Player despawn after death (binary default: 2s)
+needle_PlayerDespawnTime=2.0;
+
+; --- Ticket System ---
+; Enable tickets (binary default: true)
+needle_UseTickets=true;
+
+; Conquest ticket rate (binary default: 1.0x)
+needle_ConquestTicketRateMultiplier=1.0;
+
+; Ticket values default to -1 (computed by game logic based on match size)
+; Uncomment and set specific values to override:
+; needle_ConquestTicketsStartBase=100;
+; needle_ConquestTicketsStartPerSector=25;
+; needle_ReconTicketsStartSmall=50;
+; needle_ReconTicketsStartMedium=75;
+; needle_ReconTicketsStartLarge=100;
+; needle_TicketGoalForMatch=0;
+
+; --- Capital Ship ---
+; Capital ship appears after 30 tickets drained and 120 seconds elapsed
+needle_MatchTicketsNeededForCapitalShip=30;
+needle_MatchTimeBeforeRequestingCapitalShip=120;
+needle_CapitalShipRunJumpCount=6;
+capitalShipEnable=true;
+
+; --- Server Behavior ---
+; Reset server when all players disconnect (binary default: true)
+needle_ResetServerOnNoConnections=true;
+
+; Disable match stats publishing (our backend doesn't support it yet)
+needle_publishMatchStats=false;
+
+; Disable client ready match start (gamescriptvars override: false)
+; This means the server controls match start, not clients
+needle_EnableClientReadyMatchStartClient=false;
+needle_EnableClientReadyMatchStartServer=false;
+
+; --- Backend API ---
+; Point to our revival backend
+needle_publicServiceUrlOverride="http://localhost:8080";
+needle_privateServiceUrlOverride="http://localhost:8080";
+
+; --- Experience & Progression ---
+; Standard XP multiplier (binary default: 1.0)
+needle_ServerXpGainMultiplier=1.0;
+needle_ServerFameGainMultiplier=1.0;
+
+; Standard XP thresholds (binary defaults)
+; Level 1=150, 2=450, 3=900, 4=1350, 5=1850, 6=2350, 7=2900, 8=3450, 9=4000
+
+; --- Testing/Debug (all disabled for production) ---
+needle_GodMode=0;
+needle_HasInfiniteOre=0;
+needle_PlayersCanUseAllShipsForTesting=0;
+needle_PlayersCanUseAllSkinsForTesting=0;
+needle_DebugStressTest=0;
+needle_WriteDebugFiles=0;
+needle_IgnoreDatabaseScriptVars=0;
+
+; ============================================================================
+; NOTES FOR SERVER OPERATORS:
+;
+; 1. PORT FORWARDING: Forward UDP 27015 (or your chosen port)
+; 2. BACKEND: Start the revival API server before launching the game server
+; 3. MATCH SIZE: For low population, consider needle_MatchSize=0 (Small/5v5)
+;    and needle_MatchMinPlayersPerTeamSmall=1
+; 4. TICK RATE: serverUpdateHz=20 is retail default. Try 30 for better feel
+;    but watch CPU usage.
+; 5. PING THRESHOLD: For global players, raise needle_PingTooHighThreshold
+;    to 800-1000 if needed.
+; ============================================================================

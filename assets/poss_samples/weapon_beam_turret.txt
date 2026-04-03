@@ -1,0 +1,1380 @@
+======================================================================
+POSS File: needle_weapon_turretmedium_beam.cgpr
+======================================================================
+Magic:        POSS30RV
+String Count: 104
+
+--- Resource Paths (50) ---
+  [cmdl] $/needle/effects/models/shield/geometry/_win/shield_bubble.cmdl
+  [ctxr] $/needle/effects/textures/_win/shield_bubble.ctxr
+  [cmdl] $/needle/structures/weapons/turrets_medium/beam_mki/geometry/_win/structures_weapons_turret_medium_beam_mki_outlineshell.cmdl
+  [cesm] $/needle/engineerscripting/ai/_win/ai_main.cesm
+  [cmdl] $/needle/structures/weapons/turrets_common/turret_shield/geometry/_win/turret_shield.cmdl
+  [cwwu] $/needle/sound/needlewwiseproject/soundbanks/_win/turrets_generic.cwwu
+  [cskn] $/needle/structures/weapons/turrets_medium/beam_mki/skin/_win/structures_weapons_turrets_medium_beam_mki.cskn
+  [cmdl] $/needle/structures/weapons/turrets_medium/beam_mki/geometry/_win/structures_weapons_turret_medium_beam_mki.cmdl
+  [ctxr] $/needle/effects/models/damage_out/textures/_win/line_test.ctxr
+  [ctxr] $/misc/textures/_win/white_no_alpha_channel.ctxr
+  [cmdl] $/needle/effects/models/unitquad/_win/unitquad_xz.cmdl
+  [ctxr] $/needle/effects/textures/_win/lens_flare.ctxr
+  [cfpr] $/needle/effects/weapons/_win/cooldown_smoke.cfpr
+  [cwwu] $/needle/sound/needlewwiseproject/soundbanks/_win/turrets_capital_ship.cwwu
+  [cmdl] $/needle/structures/weapons/turrets_small/beam_mki/geometry/_win/structures_weapon_turret_small_beam_mki_laser.cmdl
+  [ctxr] $/needle/effects/textures/_win/additive_beam.ctxr
+  [cwwu] $/needle/sound/needlewwiseproject/soundbanks/_win/shp_warden.cwwu
+  [cmdl] $/needle/effects/models/barrier_hemisphere/geometry/_win/barrier_hemisphere.cmdl
+  [ccol] $/needle/effects/models/barrier_hemisphere/collision/_win/barrier_hemisphere.ccol
+  [cmdl] $/needle/effects/models/hemisphere/_win/hemisphere_8sided.cmdl
+  [cskn] $/needle/structures/weapons/turrets_small/bullet_mki/skin/_win/structures_weapon_turret_small_bullet_mki.cskn
+  [cmdl] $/editorsupport/models/cube/_win/cube.cmdl
+  [cmdl] $/needle/effects/models/unitquad/_win/unitquad_xz_flipped.cmdl
+  [ctxr] $/needle/ui/hud/textures/_win/hud_team_icon_default.ctxr
+  [ctxr] $/needle/ui/hud/textures/_win/hud_team_icon_commandeerable.ctxr
+  [ctxr] $/needle/ui/hud/textures/_win/hud_team_icon_nemesis.ctxr
+  [ctxr] $/needle/ui/hud/textures/_win/hud_team_icon_dominator.ctxr
+  [ctxr] $/needle/ui/lobbymenu/textures/_win/dev_badge_single.ctxr
+  [cfon] $/needle/fonts/_win/quan_40pt.cfon
+  [cfon] $/needle/fonts/_win/quan.cfon
+  [cfon] $/needle/fonts/_win/handelgothicsm_border.cfon
+  [ctxr] $/needle/ui/common/textures/_win/32x16bar_righthalfalpha.ctxr
+  [cfon] $/needle/fonts/_win/handelgothic_xp.cfon
+  [cfon] $/needle/fonts/_win/handelgothic.cfon
+  [cfon] $/needle/fonts/_win/handelgothic_28pt.cfon
+  [cwwu] $/needle/sound/needlewwiseproject/soundbanks/_win/ships_bank.cwwu
+  [cwwu] $/needle/sound/needlewwiseproject/soundbanks/_win/ship_generic.cwwu
+  [cfpr] $/needle/effects/energy/systems/_win/healing_effect_raider.cfpr
+  [cfpr] $/needle/effects/energy/systems/_win/emp_damage_raider.cfpr
+  [cfpr] $/needle/effects/energy/systems/_win/nebula_disrupt_frigate.cfpr
+  [cfpr] $/needle/effects/weapons/_win/beamturret_residual.cfpr
+  [cfpr] $/needle/effects/weapons/_win/corrosive_residual.cfpr
+  [cfpr] $/needle/effects/icons/systems/_win/damage_in_down.cfpr
+  [cfpr] $/needle/effects/icons/systems/_win/damage_in_up.cfpr
+  [cfpr] $/needle/effects/icons/systems/_win/speed_down.cfpr
+  [cfpr] $/needle/effects/energy/systems/_win/drone_flare.cfpr
+  [cfpr] $/needle/effects/energy/systems/_win/levelup_b.cfpr
+  [cgpr] $/needle/structures/weapons/turrets_medium/script/_win/structure_weapon_turretmedium_destruction.cgpr
+  [cloc] $/needle/loc/hud/_win/hudstrings.cloc
+  [cfon] $/needle/fonts/_win/handelgothicsm.cfon
+
+--- Events/Names (53) ---
+  Main Turret
+  Shield
+  Flash
+  CloakState
+  Cloak
+  Reveal
+  play_turret_base_inulnerableStart
+  play_turret_base_inulnerable
+  stop_turret_base_inulnerable
+  play_turret_base_inulnerableStop
+  play_turret_base_turning
+  stop_turret_base_turning
+  Charge
+  play_turret_capital_beamCannon_charge
+  stop_turret_capital_beamCannon_charge
+  play_turret_capital_beamCannon_fire
+  stop_turret_capital_beamCannon_fire
+  BeamLength
+  BeamStart
+  BeamEnd
+  play_ship_raceC_raider_base_launch
+  play_turret_base_barriers
+  stop_turret_base_barriers
+  Core2
+  Core3
+  Core4
+  Core5
+  OptionChangeTargeting
+  HUDAllChange
+  needle_ShowHUD==true
+  hud_TargetingSymbolsHide==true
+  10
+  barFillRatio
+  Unknown
+  Thrust_Fighter
+  Thrust_Fighter_Stop
+  Thrust_Fighter_Boost
+  Thrust_Fighter_Boost_Stop
+  play_ship_base_debuff_burn
+  stop_ship_base_debuff_burn
+  play_ship_base_debuff_corrosive
+  stop_ship_base_debuff_corrosive
+  play_ship_base_debuff_emp
+  stop_ship_base_debuff_emp
+  play_ship_base_effect_EMP
+  stop_ship_base_effect_EMP
+  play_ship_base_buff_repair
+  stop_ship_base_buff_repair
+  play_ship_base_buff_cloak_on
+  play_ship_base_buff_cloak_reveal
+  ... (3 more)
+
+--- Object Hierarchy ---
+Object: 'Turret (Base)'
+  GUID: 796d55da-a6db-4b5c-9b04-596a630a3169
+  Version: 6, Total Components in Tree: 2
+  Field A: 0, Field B: 25
+  Component:
+    Type Hash: 0xc029451e
+    GUID: 026f11a4-ce55-49cb-a5ba-a81475325d55
+    Editor ID: e00077e76de05b0001
+    Body Size: 9887 bytes
+    Transform:
+      [    1.0000     0.0000     0.0000     0.0000]
+      [    1.0000     0.0000     0.0000     0.0000]
+      [    1.0000     0.0000     0.0000     0.0000]
+    Body Hex (first 128 bytes):
+      0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+      0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+      0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+      0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+      0040: ba 80 73 38 04 00 00 00 00 00 7d 00 03 00 00 00   ..s8......}.....
+      0050: 44 52 44 4f eb 8d 39 31 56 ba 1b 49 b7 2a 02 f7   DRDO..91V..I.*..
+      0060: 83 cb ee 3b 00 00 00 00 00 00 00 00 01 ff ff ff   ...;............
+      0070: ff 04 00 f1 f2 33 90 44 52 45 4f eb 8d 39 31 56   .....3.DREO..91V
+  Object: 'FireControl - Level 1'
+    GUID: fcd1686a-b810-45d9-aba8-501ab4c4b274
+    Version: 6, Total Components in Tree: 11
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 7335a0eb-737a-4a29-b7ea-e8ac81d5c52f
+      Editor ID: 680077e76de0580001
+      Body Size: 221 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01 22 60   .....Y..s.(I.."`
+        0060: fe e5 e8 36 a2 4d ac bd bf c5 81 55 14 58 06 00   ...6.M.....U.X..
+        0070: da 64 5e 87 04 00 c4 4d 14 e8 2f 62 ba 2f 04 00   .d^....M../b./..
+  Object: 'Hardpoint_Turret'
+    GUID: 3004bef7-a6d6-433f-8adc-dee4756a8216
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 11
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 6df3e71d-3849-4e70-80bf-30df5bfbf7f2
+      Editor ID: 880077e76de0510001
+      Body Size: 3560 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: 2f 00 01 00 00 00 fe 7c ae 77 4a 9e 17 1e 0a ed   /......|.wJ.....
+        0050: b5 4d b3 04 ca 07 74 45 c1 f1 cd cc cc 3d 00 00   .M....tE.....=..
+        0060: 00 00 01 ff ff ff ff 04 00 a2 79 3b 6d 00 00 00   ..........y;m...
+        0070: 00 17 fd b3 4d 55 00 13 7a 4e ce 45 00 01 4c 84   ....MU..zN.E..L.
+  Object: 'Turret - Medium - Beam - Gun'
+    GUID: 36e538bb-1017-4a65-a31e-8ab60313cd98
+    Version: 6, Total Components in Tree: 5
+    Field A: 0, Field B: 12
+    Component:
+      Type Hash: 0xc029451e
+      GUID: f7dffa54-fd5e-4613-9bfc-d12607c0565f
+      Editor ID: 610077e76de0510001
+      Body Size: 2778 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     6.5000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 fe ff cf 40 00 00 a0 41   ...?.......@...A
+        0040: 08 00 00 00 00 00 00 00 00 00 d6 0f 94 01 52 00   ..............R.
+        0050: 04 73 ec 28 42 00 01 ac 54 c7 60 0f 8b a0 4d 8d   .s.(B...T.`...M.
+        0060: 6b 18 9f f6 7d 7b f8 05 00 da 64 5e 87 04 00 c4   k...}{....d^....
+        0070: 4d 14 e8 2f 62 ba 2f 04 00 3f 00 00 00 ef 79 cd   M../b./..?....y.
+  Object: 'Turret_AimingBeam'
+    GUID: d1402774-b856-4851-95cb-2a171dc2c313
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: b49d84e6-303d-4c36-8859-e01ed65632e6
+      Editor ID: c80077e76de06a0001
+      Body Size: 1081 bytes
+      Transform:
+        [    3.0000     3.0000     3.0000 -247206993124359751532091048722432.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 40 40 00 00 40 40 00 00 40 40 0e 03 43 f5   ..@@..@@..@@..C.
+        0020: 30 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00   0....?..........
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00   .....?..........
+        0040: 00 00 00 00 80 3f 00 00 00 00 fe ff cf 40 00 00   .....?.......@..
+        0050: 8c 41 5c 9c f0 93 01 00 00 56 00 02 00 00 00 44   .A\......V.....D
+        0060: 52 45 4f c4 81 05 4d 43 da ab 43 8e 86 b6 64 77   REO...MC..C...dw
+        0070: 8c a1 dd 00 00 00 00 00 00 00 00 01 ff ff ff ff   ................
+  Object: 'Payload - Target'
+    GUID: c180fcec-94c2-47d8-9ddb-196da4ffc03a
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 5
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 6620e57b-d4dc-4a6a-9101-1af511248dc6
+      Editor ID: 680077e76de0580001
+      Body Size: 1028 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 a0 41   ...?...........A
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 36 52 c5 bf 2d 00 78 c9 a1 0e 1d 00 01 86 07   .6R..-.x........
+        0060: 32 fb ce 57 7c 4d 9d a4 26 71 9b 84 67 19 01 00   2..W|M..&q..g...
+        0070: 21 09 d2 64 04 00 f8 3f d6 2d 08 00 00 00 00 00   !..d...?.-......
+  Object: 'Payload - BeamCenter'
+    GUID: 0820a871-ebc5-4890-9d1a-567e181be3d7
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 7
+    Component:
+      Type Hash: 0xc029451e
+      GUID: a60fb882-2996-4a19-aeff-e3706b3a0154
+      Editor ID: 680077e76de0580001
+      Body Size: 1704 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 a0 41   ...?...........A
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 e4 8c 6e 70 23 00 b7 fb 89 9d 13 00 01 07 2a   ...np#.........*
+        0060: 48 d9 5b e3 b8 4d bb b5 a1 ec 92 98 4f 12 00 00   H.[..M......O...
+        0070: 08 00 00 00 00 00 00 00 00 00 36 52 c5 bf 2d 00   ..........6R..-.
+  Object: 'Payload - Sides'
+    GUID: 84cf9ff9-aa99-4759-b5eb-086f5c851655
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 5
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 93399cc9-8e4b-41e3-9bcd-ee25a73031f4
+      Editor ID: 6f0077e76de05f0001
+      Body Size: 653 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 03 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 bd 37 86 35   ...?.........7.5
+        0040: 5c 9c f0 93 01 00 00 cd e5 7a 88 01 00 00 08 00   \........z......
+        0050: 00 00 00 00 00 00 00 00 e4 8c 6e 70 23 00 b7 fb   ..........np#...
+        0060: 89 9d 13 00 01 03 a6 62 67 9b 0b 8d 4d 99 89 55   .......bg...M..U
+        0070: 15 f6 ae 89 a8 00 00 08 00 00 00 00 00 00 00 00   ................
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 3461e451-0572-44f6-be2b-700763d760cc
+      Editor ID: 680077e76de0580001
+      Body Size: 903 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 36 52 c5 bf 23 00 78 c9 a1 0e 13 00 01 bd 3b   .6R..#.x.......;
+        0060: c7 45 07 a1 cf 41 8e f2 3b 53 13 54 f9 02 00 00   .E...A..;S.T....
+        0070: 08 00 00 00 00 00 00 00 00 00 e4 8c 6e 70 23 00   ............np#.
+  Object: 'FireControl - Level 2'
+    GUID: afcb4e06-7a4a-4b91-a965-abedf50b3ed1
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 6876d08c-d71e-4718-8b55-a33b90894837
+      Editor ID: 680077e76de0580001
+      Body Size: 231 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01 e0 e9   .....Y..s.(I....
+        0060: 75 84 8a fa 88 4c b3 54 9c 34 87 fb f1 a8 06 00   u....L.T.4......
+        0070: da 64 5e 87 04 00 c4 4d 14 e8 2f 62 ba 2f 04 00   .d^....M../b./..
+  Object: 'Hardpoint_Turret'
+    GUID: 9a1133c6-bb5f-4d9d-bfc0-e34f9fa7d0c5
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 11
+    Component:
+      Type Hash: 0xc029451e
+      GUID: c24ad84f-c5c7-4d1d-a872-d91c1d3467b2
+      Editor ID: 880077e76de0510001
+      Body Size: 3560 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: 2f 00 01 00 00 00 fe 7c ae 77 4a 9e 17 1e 0a ed   /......|.wJ.....
+        0050: b5 4d b3 04 ca 07 74 45 c1 f1 cd cc cc 3d 00 00   .M....tE.....=..
+        0060: 00 00 01 ff ff ff ff 04 00 a2 79 3b 6d 00 00 00   ..........y;m...
+        0070: 00 17 fd b3 4d 55 00 13 7a 4e ce 45 00 01 66 22   ....MU..zN.E..f"
+  Object: 'Turret - Medium - Beam - Gun'
+    GUID: 55f308d5-b9ce-4536-8341-f9effc3f1bcd
+    Version: 6, Total Components in Tree: 5
+    Field A: 0, Field B: 12
+    Component:
+      Type Hash: 0xc029451e
+      GUID: ed349353-4925-4c90-80c3-96b23450db66
+      Editor ID: 610077e76de0510001
+      Body Size: 2778 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     6.5000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 fe ff cf 40 00 00 a0 41   ...?.......@...A
+        0040: 08 00 00 00 00 00 00 00 00 00 d6 0f 94 01 52 00   ..............R.
+        0050: 04 73 ec 28 42 00 01 0d ee 47 a8 60 57 a9 4f b1   .s.(B....G.`W.O.
+        0060: 8c b1 3f b2 2d 40 06 05 00 da 64 5e 87 04 00 c4   ..?.-@....d^....
+        0070: 4d 14 e8 2f 62 ba 2f 04 00 3f 00 00 00 ef 79 cd   M../b./..?....y.
+  Object: 'Turret_AimingBeam'
+    GUID: afe8cb12-1184-4cf4-b751-f7421ae039ca
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 23a4aa47-2539-41d9-b343-d5a3b328f349
+      Editor ID: c80077e76de06a0001
+      Body Size: 1081 bytes
+      Transform:
+        [    3.0000     3.0000     3.0000 -247206993124359751532091048722432.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 40 40 00 00 40 40 00 00 40 40 0e 03 43 f5   ..@@..@@..@@..C.
+        0020: 30 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00   0....?..........
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00   .....?..........
+        0040: 00 00 00 00 80 3f 00 00 00 00 fe ff cf 40 00 00   .....?.......@..
+        0050: 8c 41 5c 9c f0 93 01 00 00 56 00 02 00 00 00 44   .A\......V.....D
+        0060: 52 45 4f 6b 23 71 42 35 ae 38 4a be 3d da 26 be   REOk#qB5.8J.=.&.
+        0070: 2b 89 d3 00 00 00 00 00 00 00 00 01 ff ff ff ff   +...............
+  Object: 'Payload - Target'
+    GUID: fe44668d-33fa-4b99-809a-c189a2ca16a5
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 5
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 6aaa66c3-e2e3-445a-a5be-cdce26fdc9ee
+      Editor ID: 680077e76de0580001
+      Body Size: 1028 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 a0 41   ...?...........A
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 36 52 c5 bf 2d 00 78 c9 a1 0e 1d 00 01 b0 16   .6R..-.x........
+        0060: f4 66 6e d4 21 47 94 57 9e 71 f4 11 ed 21 01 00   .fn.!G.W.q...!..
+        0070: 21 09 d2 64 04 00 f8 3f d6 2d 08 00 00 00 00 00   !..d...?.-......
+  Object: 'Payload - BeamCenter'
+    GUID: c5dc9e1c-2b92-43bf-9bc0-3294f027a1e4
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 7
+    Component:
+      Type Hash: 0xc029451e
+      GUID: a3912d45-0038-4e46-9ed8-96b1ac33a449
+      Editor ID: 680077e76de0580001
+      Body Size: 1704 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 a0 41   ...?...........A
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 e4 8c 6e 70 23 00 b7 fb 89 9d 13 00 01 8e 71   ...np#.........q
+        0060: 9c e4 4d 68 5d 43 94 52 76 9f 41 0c 5d 48 00 00   ..Mh]C.Rv.A.]H..
+        0070: 08 00 00 00 00 00 00 00 00 00 36 52 c5 bf 2d 00   ..........6R..-.
+  Object: 'Payload - Sides'
+    GUID: 6af8a18d-b1c4-42ac-8212-a46e5ad73100
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 5
+    Component:
+      Type Hash: 0xc029451e
+      GUID: a9b2acb2-1db4-417c-b8cd-1e451b13b6dc
+      Editor ID: 6f0077e76de05f0001
+      Body Size: 653 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 03 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 bd 37 86 35   ...?.........7.5
+        0040: 5c 9c f0 93 01 00 00 cd e5 7a 88 01 00 00 08 00   \........z......
+        0050: 00 00 00 00 00 00 00 00 e4 8c 6e 70 23 00 b7 fb   ..........np#...
+        0060: 89 9d 13 00 01 d7 6f f8 62 1c d5 d3 40 a4 66 4a   ......o.b...@.fJ
+        0070: 6f 93 85 c7 37 00 00 08 00 00 00 00 00 00 00 00   o...7...........
+    Component:
+      Type Hash: 0xc029451e
+      GUID: ce5dd3c5-6929-4996-a4cd-9f35e692111f
+      Editor ID: 680077e76de0580001
+      Body Size: 928 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 bd 37 86 35   ...?.........7.5
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 36 52 c5 bf 23 00 78 c9 a1 0e 13 00 01 36 d2   .6R..#.x......6.
+        0060: 87 f2 70 33 e5 40 84 47 94 54 c7 fb 55 9d 00 00   ..p3.@.G.T..U...
+        0070: 08 00 00 00 00 00 00 00 00 00 dd 5d 54 16 c7 01   ...........]T...
+  Object: 'FireControl - Level 3'
+    GUID: ef99872b-c919-4c4a-9db3-741a9d61f6a7
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 89a7f720-ac34-4fb7-8fe2-79b33cac8c7a
+      Editor ID: 680077e76de0580001
+      Body Size: 231 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01 07 7a   .....Y..s.(I...z
+        0060: 9d b4 8d 57 65 46 80 4f 46 82 0c 7e 9d 4a 06 00   ...WeF.OF..~.J..
+        0070: da 64 5e 87 04 00 c4 4d 14 e8 2f 62 ba 2f 04 00   .d^....M../b./..
+  Object: 'Hardpoint_Turret'
+    GUID: 1a5b30be-80bc-4753-bfea-ead0059e56f6
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 11
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 627ba297-e389-4eee-b342-78b81cee3c86
+      Editor ID: af0077e76de0510001
+      Body Size: 3599 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: 56 00 02 00 00 00 fe 7c ae 77 c6 db 7a ac b9 3c   V......|.w..z..<
+        0050: 2b 43 a8 de 93 e4 1e ae 53 34 00 00 00 00 00 00   +C......S4......
+        0060: 00 00 01 ff ff ff ff 04 00 6d 6b 8a d0 fe 7c ae   .........mk...|.
+        0070: 77 4a 9e 17 1e 0a ed b5 4d b3 04 ca 07 74 45 c1   wJ......M....tE.
+  Object: 'BarrierControl_Logic'
+    GUID: c157491a-fa35-4d48-8583-2a80f34e00c3
+    Version: 6, Total Components in Tree: 6
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: ac7adbc6-3cb9-432b-a8de-93e41eae5334
+      Editor ID: 8f0077e76de0580001
+      Body Size: 354 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000    10.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 20 41 00 00 00 00   ...?...... A....
+        0040: 34 f9 b2 4c 01 00 00 2f 00 01 00 00 00 54 43 41   4..L.../.....TCA
+        0050: 4f 5a 49 65 6c 00 d9 ae 45 b2 97 87 dd a6 9f 62   OZIel...E......b
+        0060: 93 00 00 00 00 00 00 00 00 01 ff ff ff ff 04 00   ................
+        0070: c1 36 d6 d5 00 00 00 00 d6 0f 94 01 71 00 bd cd   .6..........q...
+  Object: 'Barrier - Control'
+    GUID: 99d2425e-5d0f-48b4-b2e3-bcbdcc645d16
+    Version: 6, Total Components in Tree: 4
+    Field A: 0, Field B: 8
+    Component:
+      Type Hash: 0xc029451e
+      GUID: bc086570-376c-4abd-8338-e4b0f1b76676
+      Editor ID: 610077e76de0510001
+      Body Size: 998 bytes
+      Transform:
+        [   -0.0000     0.0000     1.0000     0.0000]
+        [    1.0000     0.0000    -1.0000     0.0000]
+        [   -0.0000   -18.5000     5.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 2e bd 3b b3 00 00 00 00 00 00 80 3f 00 00 00 00   ..;........?....
+        0020: 00 00 80 3f 00 00 00 00 00 00 80 bf 00 00 00 00   ...?............
+        0030: 2e bd 3b b3 00 00 94 c1 00 00 a0 40 00 00 00 00   ..;........@....
+        0040: 08 00 00 00 00 00 00 00 00 00 d6 0f 94 01 4a 00   ..............J.
+        0050: bd cd fb 9c 13 00 01 26 01 fb 13 60 33 71 4b 89   .......&...`3qK.
+        0060: 83 af 35 97 f6 81 a3 00 00 2f 00 01 00 00 00 1c   ..5....../......
+        0070: 8e d7 0e e0 0c e8 7b a8 69 b8 41 9c b7 70 d2 bc   ......{.i.A..p..
+  Object: 'Barrier - Generated'
+    GUID: 9a89533e-875b-499b-8cfd-623c2b5fc255
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 15
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 2b45c979-892c-4ed3-92f4-b26ec9008faf
+      Editor ID: 7a0077e76de06a0001
+      Body Size: 3926 bytes
+      Transform:
+        [   25.0000    15.0000     4.0000 -247206993124359751532091048722432.0000]
+        [   -0.0425     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 c8 41 00 00 70 41 00 00 80 40 0e 03 43 f5   ...A..pA...@..C.
+        0020: 30 00 2e bd 3b b3 00 00 00 00 00 00 80 3f 00 00   0...;........?..
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 80 bf 00 00   .....?..........
+        0040: 00 00 2e bd 3b b3 00 00 94 c1 00 00 a0 40 00 00   ....;........@..
+        0050: 00 00 cd e5 7a 88 01 00 00 08 00 00 00 00 00 00   ....z...........
+        0060: 00 00 00 e4 8c 6e 70 2d 00 b7 fb 89 9d 1d 00 01   .....np-........
+        0070: fa d9 34 fe f7 1f ac 4e 8a fd 1f c2 b5 a4 f8 5d   ..4....N.......]
+  Object: 'Effect - Shield Hit'
+    GUID: a5f9b209-d5bd-52bb-bd12-63084514a88a
+    Version: 6, Total Components in Tree: 1
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 8586d371-2c18-5953-a9c2-99377c05e3eb
+      Editor ID: 7a0077e76de06a0001
+      Body Size: 948 bytes
+      Transform:
+        [    2.5000     1.5000     1.0000 -247206993124359751532091048722432.0000]
+        [   -0.0425     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 20 40 00 00 c0 3f 00 00 80 3f 0e 03 43 f5   .. @...?...?..C.
+        0020: 30 00 2e bd 3b b3 00 00 00 00 00 00 80 3f 00 00   0...;........?..
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 80 bf 00 00   .....?..........
+        0040: 00 00 2c bd 3b b3 00 00 94 c1 00 00 a0 40 00 00   ..,.;........@..
+        0050: 00 00 cd e5 7a 88 01 00 00 08 00 00 00 00 00 00   ....z...........
+        0060: 00 00 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01   .......Y..s.(I..
+        0070: 53 43 3d 82 ad a0 ec 55 90 e0 b7 97 e0 ff 02 db   SC=....U........
+  Object: 'Barrier - Control'
+    GUID: 6f82175b-74fe-4a8f-a23f-9fe620f16e3f
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 8
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 4de557e0-f952-49f5-836a-8ee31054a7fb
+      Editor ID: 610077e76de0510001
+      Body Size: 998 bytes
+      Transform:
+        [   -0.0000     0.0000    -1.0000     0.0000]
+        [    1.0000     0.0000     1.0000     0.0000]
+        [   -0.0000    18.5000     5.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 4d ef 2e b4 00 00 00 00 00 00 80 bf 00 00 00 00   M...............
+        0020: 00 00 80 3f 00 00 00 00 00 00 80 3f 00 00 00 00   ...?.......?....
+        0030: 4d ef 2e b4 00 00 94 41 00 00 a0 40 00 00 00 00   M......A...@....
+        0040: 08 00 00 00 00 00 00 00 00 00 d6 0f 94 01 4a 00   ..............J.
+        0050: bd cd fb 9c 13 00 01 e3 41 39 29 c9 41 c5 4d 9b   ........A9).A.M.
+        0060: b9 5f 8c 34 d0 6f 3a 00 00 2f 00 01 00 00 00 1c   ._.4.o:../......
+        0070: 8e d7 0e bf e4 74 c9 a4 db 89 48 b8 7d f8 42 cb   .....t....H.}.B.
+  Object: 'Barrier - Generated'
+    GUID: 668634e3-e715-477d-bc4a-ca35b04e0cd2
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 15
+    Component:
+      Type Hash: 0xc029451e
+      GUID: ec732224-b009-4384-8280-3843cf8e9e6e
+      Editor ID: 7a0077e76de06a0001
+      Body Size: 3926 bytes
+      Transform:
+        [   25.0000    15.0000     4.0000 -247206993124359751532091048722432.0000]
+        [-63444653686966916831550373888.0000     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 c8 41 00 00 70 41 00 00 80 40 0e 03 43 f5   ...A..pA...@..C.
+        0020: 30 00 4d ef 2e b4 00 00 00 00 00 00 80 bf 00 00   0.M.............
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 80 3f 00 00   .....?.......?..
+        0040: 00 00 4d ef 2e b4 00 00 94 41 00 00 a0 40 00 00   ..M......A...@..
+        0050: 00 00 cd e5 7a 88 01 00 00 08 00 00 00 00 00 00   ....z...........
+        0060: 00 00 00 e4 8c 6e 70 2d 00 b7 fb 89 9d 1d 00 01   .....np-........
+        0070: 49 13 dc 58 a2 21 e8 4a bf 37 0b a5 e1 b1 28 80   I..X.!.J.7....(.
+  Object: 'Effect - Shield Hit'
+    GUID: 8e051c6c-4a77-501e-9ea9-b43378c0d16e
+    Version: 6, Total Components in Tree: 1
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 777074d1-b6da-53d0-aacf-4652cddc2372
+      Editor ID: 7a0077e76de06a0001
+      Body Size: 948 bytes
+      Transform:
+        [    2.5000     1.5000     1.0000 -247206993124359751532091048722432.0000]
+        [-63444653686966916831550373888.0000     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 20 40 00 00 c0 3f 00 00 80 3f 0e 03 43 f5   .. @...?...?..C.
+        0020: 30 00 4d ef 2e b4 00 00 00 00 00 00 80 bf 00 00   0.M.............
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 80 3f 00 00   .....?.......?..
+        0040: 00 00 4d ef 2e b4 00 00 94 41 00 00 a0 40 00 00   ..M......A...@..
+        0050: 00 00 cd e5 7a 88 01 00 00 08 00 00 00 00 00 00   ....z...........
+        0060: 00 00 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01   .......Y..s.(I..
+        0070: 53 53 18 a9 38 e3 e2 5e 85 db 15 61 0b e1 43 f0   SS..8..^...a..C.
+  Object: 'Turret - Medium - Beam - Gun'
+    GUID: 146dcde8-fa81-47f9-a5f0-af67453cf400
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 12
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 7d1b0605-d025-4402-9892-330fa6458ebe
+      Editor ID: 610077e76de0510001
+      Body Size: 2778 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     6.5000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 fe ff cf 40 00 00 a0 41   ...?.......@...A
+        0040: 08 00 00 00 00 00 00 00 00 00 d6 0f 94 01 52 00   ..............R.
+        0050: 04 73 ec 28 42 00 01 49 6e ff 48 61 d8 47 4d bf   .s.(B..In.Ha.GM.
+        0060: d0 c2 83 d3 c3 0e 85 05 00 da 64 5e 87 04 00 c4   ..........d^....
+        0070: 4d 14 e8 2f 62 ba 2f 04 00 3f 00 00 00 ef 79 cd   M../b./..?....y.
+  Object: 'Turret_AimingBeam'
+    GUID: ca641b5c-0aef-4003-bdb5-19ac6732a0a6
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: c8b7bc36-b9ab-42f1-9de8-797118752703
+      Editor ID: c80077e76de06a0001
+      Body Size: 1081 bytes
+      Transform:
+        [    3.0000     3.0000     3.0000 -247206993124359751532091048722432.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 40 40 00 00 40 40 00 00 40 40 0e 03 43 f5   ..@@..@@..@@..C.
+        0020: 30 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00   0....?..........
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00   .....?..........
+        0040: 00 00 00 00 80 3f 00 00 00 00 fe ff cf 40 00 00   .....?.......@..
+        0050: 8c 41 5c 9c f0 93 01 00 00 56 00 02 00 00 00 44   .A\......V.....D
+        0060: 52 45 4f 7b 23 76 94 b0 8f f1 40 b1 c4 71 f0 31   REO{#v....@..q.1
+        0070: f2 2e 5d 00 00 00 00 00 00 00 00 01 ff ff ff ff   ..].............
+  Object: 'Payload - Target'
+    GUID: 3cc4f48b-685a-4376-9551-4301e40e3d63
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 5
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 34dfb84d-a811-4ed9-ae59-40f7feaa2388
+      Editor ID: 680077e76de0580001
+      Body Size: 1028 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 a0 41   ...?...........A
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 36 52 c5 bf 2d 00 78 c9 a1 0e 1d 00 01 62 2a   .6R..-.x......b*
+        0060: 98 a6 0e 51 ab 46 8a 8e 77 fd 84 1a 90 19 01 00   ...Q.F..w.......
+        0070: 21 09 d2 64 04 00 f8 3f d6 2d 08 00 00 00 00 00   !..d...?.-......
+  Object: 'Payload - BeamCenter'
+    GUID: e883b58c-fd0a-4e0c-9f0f-fdfdc7644b35
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 7
+    Component:
+      Type Hash: 0xc029451e
+      GUID: fc1c21ac-abba-4244-ac59-da58a9accc93
+      Editor ID: 680077e76de0580001
+      Body Size: 1704 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 a0 41   ...?...........A
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 e4 8c 6e 70 23 00 b7 fb 89 9d 13 00 01 b2 41   ...np#.........A
+        0060: 59 e0 9f cf 41 4a 95 7f 79 2c bf 8c 4d 25 00 00   Y...AJ..y,..M%..
+        0070: 08 00 00 00 00 00 00 00 00 00 36 52 c5 bf 2d 00   ..........6R..-.
+  Object: 'Payload - Sides'
+    GUID: 062603e3-327c-4837-bdbd-8f046c3d1361
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 5
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 4cc53736-c413-477b-9738-2bf25dcf3d3b
+      Editor ID: 6f0077e76de05f0001
+      Body Size: 653 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 03 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 bd 37 86 35   ...?.........7.5
+        0040: 5c 9c f0 93 01 00 00 cd e5 7a 88 01 00 00 08 00   \........z......
+        0050: 00 00 00 00 00 00 00 00 e4 8c 6e 70 23 00 b7 fb   ..........np#...
+        0060: 89 9d 13 00 01 ed 66 1b cb 27 2b 63 4d bf 12 b5   ......f..'+cM...
+        0070: 7c 1f b7 ac 5c 00 00 08 00 00 00 00 00 00 00 00   |...\...........
+    Component:
+      Type Hash: 0xc029451e
+      GUID: f9884a2f-7833-427b-a351-1e6ab42a4c79
+      Editor ID: 680077e76de0580001
+      Body Size: 903 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 bd 37 86 35   ...?.........7.5
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 36 52 c5 bf 23 00 78 c9 a1 0e 13 00 01 fc eb   .6R..#.x........
+        0060: 64 3e c0 09 8b 45 9b 93 3b 45 16 9e 28 33 00 00   d>...E..;E..(3..
+        0070: 08 00 00 00 00 00 00 00 00 00 e4 8c 6e 70 23 00   ............np#.
+  Object: 'FireControl - Level 4'
+    GUID: 3aeb46e5-d7cd-47c5-9660-7635ed71c832
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: f30cfd87-6f28-4e51-bb8f-dc0b69fe942e
+      Editor ID: 680077e76de0580001
+      Body Size: 231 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01 8e b5   .....Y..s.(I....
+        0060: 35 ca 52 f2 81 42 b9 29 8a e3 11 5e d3 db 06 00   5.R..B.)...^....
+        0070: da 64 5e 87 04 00 c4 4d 14 e8 2f 62 ba 2f 04 00   .d^....M../b./..
+  Object: 'Hardpoint_Turret'
+    GUID: c9fc755f-6e81-4e7a-a54a-d03d0da3bb01
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 11
+    Component:
+      Type Hash: 0xc029451e
+      GUID: a3a2973d-6fbc-460d-b1ae-37ed062bc39b
+      Editor ID: d60077e76de0510001
+      Body Size: 3638 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: 7d 00 03 00 00 00 fe 7c ae 77 61 90 a3 b8 a7 3b   }......|.wa....;
+        0050: f4 56 94 4b 66 77 d1 27 2b 09 00 00 00 00 00 00   .V.Kfw.'+.......
+        0060: 00 00 01 ff ff ff ff 04 00 6d 6b 8a d0 fe 7c ae   .........mk...|.
+        0070: 77 6a 72 1e dd 57 de 8e 41 ac af ed 29 bc ec 26   wjr..W..A...)..&
+  Object: 'BarrierControl_Logic'
+    GUID: a2aa7338-7d19-4597-bb19-669d0b6c62ae
+    Version: 6, Total Components in Tree: 6
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: dd1e726a-de57-418e-acaf-ed29bcec26ad
+      Editor ID: 8f0077e76de0580001
+      Body Size: 354 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000    10.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 20 41 00 00 00 00   ...?...... A....
+        0040: 34 f9 b2 4c 01 00 00 2f 00 01 00 00 00 54 43 41   4..L.../.....TCA
+        0050: 4f 1a e5 c6 e6 28 fd d8 4d b0 63 0a 03 4e 71 a1   O....(..M.c..Nq.
+        0060: e0 00 00 00 00 00 00 00 00 01 ff ff ff ff 04 00   ................
+        0070: c1 36 d6 d5 00 00 00 00 d6 0f 94 01 71 00 bd cd   .6..........q...
+  Object: 'Barrier - Control'
+    GUID: 4a3bc91f-ac93-4385-b11f-69635dee5079
+    Version: 6, Total Components in Tree: 4
+    Field A: 0, Field B: 8
+    Component:
+      Type Hash: 0xc029451e
+      GUID: ff9c8942-67d0-410c-8e66-939d9efc518d
+      Editor ID: 610077e76de0510001
+      Body Size: 998 bytes
+      Transform:
+        [   -0.0000     0.0000     1.0000     0.0000]
+        [    1.0000     0.0000    -1.0000     0.0000]
+        [   -0.0000   -18.5000     5.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 2e bd 3b b3 00 00 00 00 00 00 80 3f 00 00 00 00   ..;........?....
+        0020: 00 00 80 3f 00 00 00 00 00 00 80 bf 00 00 00 00   ...?............
+        0030: 2e bd 3b b3 00 00 94 c1 00 00 a0 40 00 00 00 00   ..;........@....
+        0040: 08 00 00 00 00 00 00 00 00 00 d6 0f 94 01 4a 00   ..............J.
+        0050: bd cd fb 9c 13 00 01 f3 3d 97 f8 4b b7 75 42 86   ........=..K.uB.
+        0060: 6b d7 ba b2 34 4e 8c 00 00 2f 00 01 00 00 00 1c   k...4N.../......
+        0070: 8e d7 0e 4b af e2 fe 3a c0 1a 46 b3 0a c6 9e 2b   ...K...:..F....+
+  Object: 'Barrier - Generated'
+    GUID: ddbaa8b7-49dd-483e-893c-f04436f832f8
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 15
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 08993f31-f27f-4c02-a8d6-674c5d040f8b
+      Editor ID: 7a0077e76de06a0001
+      Body Size: 3926 bytes
+      Transform:
+        [   25.0000    15.0000     4.0000 -247206993124359751532091048722432.0000]
+        [   -0.0425     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 c8 41 00 00 70 41 00 00 80 40 0e 03 43 f5   ...A..pA...@..C.
+        0020: 30 00 2e bd 3b b3 00 00 00 00 00 00 80 3f 00 00   0...;........?..
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 80 bf 00 00   .....?..........
+        0040: 00 00 2e bd 3b b3 00 00 94 c1 00 00 a0 40 00 00   ....;........@..
+        0050: 00 00 cd e5 7a 88 01 00 00 08 00 00 00 00 00 00   ....z...........
+        0060: 00 00 00 e4 8c 6e 70 2d 00 b7 fb 89 9d 1d 00 01   .....np-........
+        0070: ae 00 73 a7 c6 37 c6 49 b7 18 c9 00 5f a3 b1 20   ..s..7.I...._.. 
+  Object: 'Effect - Shield Hit'
+    GUID: 0bdb03f9-4c6e-5f75-af4c-f747d6a2d556
+    Version: 6, Total Components in Tree: 1
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 8beb26d5-4b56-5e37-8cb8-abd8a4ddbdde
+      Editor ID: 7a0077e76de06a0001
+      Body Size: 948 bytes
+      Transform:
+        [    2.5000     1.5000     1.0000 -247206993124359751532091048722432.0000]
+        [   -0.0425     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 20 40 00 00 c0 3f 00 00 80 3f 0e 03 43 f5   .. @...?...?..C.
+        0020: 30 00 2e bd 3b b3 00 00 00 00 00 00 80 3f 00 00   0...;........?..
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 80 bf 00 00   .....?..........
+        0040: 00 00 2c bd 3b b3 00 00 94 c1 00 00 a0 40 00 00   ..,.;........@..
+        0050: 00 00 cd e5 7a 88 01 00 00 08 00 00 00 00 00 00   ....z...........
+        0060: 00 00 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01   .......Y..s.(I..
+        0070: 86 4b 13 29 be 8c 6b 5b 87 3c 8e 90 97 c2 00 9b   .K.)..k[.<......
+  Object: 'Barrier - Control'
+    GUID: 22f0f328-7b1c-45ae-9cad-4280de118cd1
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 8
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 7a7fa1b1-f101-4b63-a566-ff314ca29c08
+      Editor ID: 610077e76de0510001
+      Body Size: 998 bytes
+      Transform:
+        [   -0.0000     0.0000    -1.0000     0.0000]
+        [    1.0000     0.0000     1.0000     0.0000]
+        [   -0.0000    18.5000     5.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 4d ef 2e b4 00 00 00 00 00 00 80 bf 00 00 00 00   M...............
+        0020: 00 00 80 3f 00 00 00 00 00 00 80 3f 00 00 00 00   ...?.......?....
+        0030: 4d ef 2e b4 00 00 94 41 00 00 a0 40 00 00 00 00   M......A...@....
+        0040: 08 00 00 00 00 00 00 00 00 00 d6 0f 94 01 4a 00   ..............J.
+        0050: bd cd fb 9c 13 00 01 bd 39 55 cf 0c 94 19 41 b3   ........9U....A.
+        0060: 8e 2d 97 d1 82 c4 7c 00 00 2f 00 01 00 00 00 1c   .-....|../......
+        0070: 8e d7 0e 10 a1 fb 29 d4 1f 79 47 82 7a 12 fa 12   ......)..yG.z...
+  Object: 'Barrier - Generated'
+    GUID: 03e56725-66d3-4f17-9b48-2118863a4aa3
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 15
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 7abdae1b-411f-4a55-9b41-b28db8bea0a4
+      Editor ID: 7a0077e76de06a0001
+      Body Size: 3926 bytes
+      Transform:
+        [   25.0000    15.0000     4.0000 -247206993124359751532091048722432.0000]
+        [-63444653686966916831550373888.0000     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 c8 41 00 00 70 41 00 00 80 40 0e 03 43 f5   ...A..pA...@..C.
+        0020: 30 00 4d ef 2e b4 00 00 00 00 00 00 80 bf 00 00   0.M.............
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 80 3f 00 00   .....?.......?..
+        0040: 00 00 4d ef 2e b4 00 00 94 41 00 00 a0 40 00 00   ..M......A...@..
+        0050: 00 00 cd e5 7a 88 01 00 00 08 00 00 00 00 00 00   ....z...........
+        0060: 00 00 00 e4 8c 6e 70 2d 00 b7 fb 89 9d 1d 00 01   .....np-........
+        0070: 7b 14 c8 21 b4 3c f0 42 b7 16 30 ee e8 42 52 fc   {..!.<.B..0..BR.
+  Object: 'Effect - Shield Hit'
+    GUID: b98f6a29-7845-5d0b-8129-63e641ebe08d
+    Version: 6, Total Components in Tree: 1
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 5c4bf54c-fb2f-584f-974f-7e64280e594a
+      Editor ID: 7a0077e76de06a0001
+      Body Size: 948 bytes
+      Transform:
+        [    2.5000     1.5000     1.0000 -247206993124359751532091048722432.0000]
+        [-63444653686966916831550373888.0000     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 20 40 00 00 c0 3f 00 00 80 3f 0e 03 43 f5   .. @...?...?..C.
+        0020: 30 00 4d ef 2e b4 00 00 00 00 00 00 80 bf 00 00   0.M.............
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 80 3f 00 00   .....?.......?..
+        0040: 00 00 4d ef 2e b4 00 00 94 41 00 00 a0 40 00 00   ..M......A...@..
+        0050: 00 00 cd e5 7a 88 01 00 00 08 00 00 00 00 00 00   ....z...........
+        0060: 00 00 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01   .......Y..s.(I..
+        0070: 66 f8 92 d0 0a 20 e7 5a af d4 58 cb a9 c4 dc 3c   f.... .Z..X....<
+  Object: 'Turret - Medium - Beam - Gun'
+    GUID: f547a144-4d2d-4b34-857e-3c4a05eb6fb2
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 12
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 7a0a21e4-29cb-4c7b-91e1-fd752e93c2ca
+      Editor ID: 610077e76de0510001
+      Body Size: 2778 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     6.5000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 fe ff cf 40 00 00 a0 41   ...?.......@...A
+        0040: 08 00 00 00 00 00 00 00 00 00 d6 0f 94 01 52 00   ..............R.
+        0050: 04 73 ec 28 42 00 01 63 6a 69 56 18 d2 de 47 8b   .s.(B..cjiV...G.
+        0060: aa 9a 20 93 af 92 a2 05 00 da 64 5e 87 04 00 c4   .. .......d^....
+        0070: 4d 14 e8 2f 62 ba 2f 04 00 3f 00 00 00 ef 79 cd   M../b./..?....y.
+  Object: 'Turret_AimingBeam'
+    GUID: 4058bc39-659a-492f-a13a-873c6d4aff89
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 0944c693-8310-4002-9190-6af88f79c407
+      Editor ID: c80077e76de06a0001
+      Body Size: 1081 bytes
+      Transform:
+        [    3.0000     3.0000     3.0000 -247206993124359751532091048722432.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+        [    0.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 4a 00 02 00 80 0a 87 2d 0c 00   .._zJ.J......-..
+        0010: 00 00 40 40 00 00 40 40 00 00 40 40 0e 03 43 f5   ..@@..@@..@@..C.
+        0020: 30 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00   0....?..........
+        0030: 00 00 00 00 80 3f 00 00 00 00 00 00 00 00 00 00   .....?..........
+        0040: 00 00 00 00 80 3f 00 00 00 00 fe ff cf 40 00 00   .....?.......@..
+        0050: 8c 41 5c 9c f0 93 01 00 00 56 00 02 00 00 00 44   .A\......V.....D
+        0060: 52 45 4f 47 83 0c 48 ad 69 94 47 a3 e9 a9 b8 7f   REOG..H.i.G.....
+        0070: 55 a8 53 00 00 00 00 00 00 00 00 01 ff ff ff ff   U.S.............
+  Object: 'Payload - Target'
+    GUID: 894abad1-44c5-4d8f-bb8a-0d27a9e506f5
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 5
+    Component:
+      Type Hash: 0xc029451e
+      GUID: b0f4c893-0fd9-4506-a37e-bb9edfc38fe1
+      Editor ID: 680077e76de0580001
+      Body Size: 1028 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 a0 41   ...?...........A
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 36 52 c5 bf 2d 00 78 c9 a1 0e 1d 00 01 6a 1e   .6R..-.x......j.
+        0060: 19 64 6d ee 05 44 8c ae 35 e1 fb 1b 5a 78 01 00   .dm..D..5...Zx..
+        0070: 21 09 d2 64 04 00 f8 3f d6 2d 08 00 00 00 00 00   !..d...?.-......
+  Object: 'Payload - BeamCenter'
+    GUID: 38a1a05a-973c-42f0-8a74-756be92a1778
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 7
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 9ce99d44-b654-4cc7-bd7c-0f14fa2ef419
+      Editor ID: 680077e76de0580001
+      Body Size: 1704 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    20.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 a0 41   ...?...........A
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 e4 8c 6e 70 23 00 b7 fb 89 9d 13 00 01 5c 60   ...np#........\`
+        0060: 9b 3b a7 af cb 4a a4 48 b6 d7 b9 ea 6d 7b 00 00   .;...J.H....m{..
+        0070: 08 00 00 00 00 00 00 00 00 00 36 52 c5 bf 2d 00   ..........6R..-.
+  Object: 'Payload - Sides'
+    GUID: 0a4e0c99-a7c3-43a3-9e4c-e58f5551de2e
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 5
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 95e4ec40-e4a1-41ba-9433-9b09e0e2a066
+      Editor ID: 6f0077e76de05f0001
+      Body Size: 653 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 03 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: 5c 9c f0 93 01 00 00 cd e5 7a 88 01 00 00 08 00   \........z......
+        0050: 00 00 00 00 00 00 00 00 e4 8c 6e 70 23 00 b7 fb   ..........np#...
+        0060: 89 9d 13 00 01 65 e1 d6 36 30 a2 da 44 a4 35 9b   .....e..60..D.5.
+        0070: de c3 60 d3 ca 00 00 08 00 00 00 00 00 00 00 00   ..`.............
+    Component:
+      Type Hash: 0xc029451e
+      GUID: b89c9d6c-bb14-4f0d-be18-f4815aa0c697
+      Editor ID: 680077e76de0580001
+      Body Size: 903 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000    -0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 bd 37 06 b6   ...?.........7..
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 36 52 c5 bf 23 00 78 c9 a1 0e 13 00 01 66 e0   .6R..#.x......f.
+        0060: f9 11 58 b8 04 46 82 6e fe 64 2f 4e 8e df 00 00   ..X..F.n.d/N....
+        0070: 08 00 00 00 00 00 00 00 00 00 e4 8c 6e 70 23 00   ............np#.
+  Object: 'FireControl - Level 5'
+    GUID: 79ef1bfc-d41f-5d32-a033-cd4e8c44ac7c
+    Version: 6, Total Components in Tree: 0
+    Field A: 1, Field B: 3
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 69c5eb7b-b11c-5ec9-a81e-f3c89b0ac1dc
+      Editor ID: 680077e76de0580001
+      Body Size: 231 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 02 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: cd e5 7a 88 01 00 00 08 00 00 00 00 00 00 00 00   ..z.............
+        0050: 00 d6 0f 94 01 59 00 04 73 ec 28 49 00 01 dd f9   .....Y..s.(I....
+        0060: e3 01 95 68 25 58 8d 2c 90 6c 9f 5c 68 e0 06 00   ...h%X.,.l.\h...
+        0070: da 64 5e 87 04 00 c4 4d 14 e8 2f 62 ba 2f 04 00   .d^....M../b./..
+  Object: 'Hardpoint_Turret'
+    GUID: 0d955a87-b851-537a-964c-91d147511ee8
+    Version: 6, Total Components in Tree: 1
+    Field A: 0, Field B: 11
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 1a698b71-85d8-557c-8fa2-bfc8e21445f6
+      Editor ID: 880077e76de0510001
+      Body Size: 3516 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+      Body Hex (first 128 bytes):
+        0000: 01 00 5f 7a 4a fb 38 00 01 00 0e 03 43 f5 30 00   .._zJ.8.....C.0.
+        0010: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0020: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0030: 00 00 80 3f 00 00 00 00 00 00 00 00 00 00 00 00   ...?............
+        0040: 2f 00 01 00 00 00 fe 7c ae 77 4a 9e 17 1e 0a ed   /......|.wJ.....
+        0050: b5 4d b3 04 ca 07 74 45 c1 f1 cd cc cc 3d 00 00   .M....tE.....=..
+        0060: 00 00 01 ff ff ff ff 04 00 a2 79 3b 6d 00 00 00   ..........y;m...
+        0070: 00 17 fd b3 4d 55 00 13 7a 4e ce 45 00 01 2d f8   ....MU..zN.E..-.
+  Object: 'BarrierControl_Logic       E)À wçmàX a£¸§;ôVKfwÑ'+	 _zJû8  Cõ0   ?              ?              ?       A    4ù²L  /    TCAOI.3}_!çzë	ö        ÿÿÿÿ Á6ÖÕ    Öq ½Íû I.3}_!çzë	ö  V    ×>½ÐGd5UE¼ÉÃ_åf        ÿÿÿÿ Á6ÖÕ×(ø	×YrwÜí*ò        ÿÿÿÿ Á6ÖÕ    Öq ½Íû Î¶Âév]tûÓÀ)à  V    ×ä­»³ÿ%Y¡
+Uë        ÿÿÿÿ Á6ÖÕ×	«MÊ_ý
+Ü9õB        ÿÿÿÿ Á6ÖÕ          zÖFxQ}Ê#a«&Barrier - Control       E)Àa wçmàQ 4OöSìLTÿt´è _zJû8  Cõ0 .½;³      ?      ?      ¿    .½;³  Á   @             ÖJ ½Íû -ëØáäx_¹6C  /    ×ügmQÍUâÆ²KVÍ        ÿÿÿÿ ®S    Öq ½Íû Eýp/ @YãÏS
+!  V    ×	«MÊ_ý
+Ü9õB        ÿÿÿÿ Á6ÖÕ×ügmQÍUâÆ²KVÍ        ÿÿÿÿ ,!T    ñ«b ¾Îí+ ügmQÍUâÆ²KVÍ ?XO²  Ð²m  {7¦Ï     /    ÔäÏ(ø	×YrwÜí*ò        ÿÿÿÿ Á6ÖÕ    Ö ½Íû (ø	×YrwÜí*ò  }    ×ÕÇØk ÞQ "o.        ÿÿÿÿ °îì×&oMê©Z°Ç­Gé        ÿÿÿÿ Á6ÖÕ×2ýzýÚ[¯é¥n        ÿÿÿÿ °îì    6RÅ¿	õBA &oMê©Z°Ç­Gé  î    %Öý%Ù4­þ7LY©ë±£êñg³        RNEGÃ  ÉÉ 
+	²#ä{ »	Í  ïyÍ     ó?8 ºIäWsº ¿ Óé (ºÇX 0w¶Ü     ò5W Z ¼ oXx·,êN  [5 äFV I)@ 4Ùî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `Xå    Öq ½Íû 	«MÊ_ý
+Ü9õB  V    ×Ù4­þ7LY©ë±£êñg³        ÿÿÿÿ ±y¾=×¡Ñ ýôU¡ûÑ-
+ÏÜ        ÿÿÿÿ °îì    û:8G £%oú7 ÕÇØk ÞQ "o. gu@â   ³áz¾   ]ú² %   £%oú &                   ÊÚ=>_WaÇBarrier - Generated      E)Àz wçmàj Ù4­þ7LY©ë±£êñg³ _zJûJ  
+-   ÈA  pA  @Cõ0 .½;³      ?      ?      ¿    .½;³  Á   @    Íåz           änp- ·û )ÜÉ@_»³A¬e1á× vó woUû         6RÅ¿# xÉ¡ óÝâ½u¯b[¢ ot           Ö sì(Y bèY9­*;V ÏgBV /bº/ ?   ïyÍ å/® mMÂ   Á   @    sº å/® mMÂ       ´Â    /        ¹ç®=¢£¼oF±®7í+Ã        ÿÿÿÿ /M\Ý]TúJUü1Îg£1r^£1ÞVíy* Ý]T '   ÞRÄ     gu@âV Q]õh! ¯ö° T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BR T¬4÷ 0w¶Ü .!ò<Sï=  ?  ?­u^: T¬4÷ 0w¶Ü   ?Sï=.!ò<  ?lÜk T¬4÷ 0w¶Ü ¾±B?· ¬>§<  ?»§ T¬4÷ 0w¶Ü ¾±B?· ¬>§<  ??ß­ ¿L" 8Ñþ    Ez&X ÁÙv
+-Y  ¹ |?É7                 ?    ó5?ó5?  ?  ?ó5?ó5?  ?    Óé ¨9P' øì, #ÕæÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     r* (ºÇX 0w¶Ü   ?üÇÃØõh! ¯ö° T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BR T¬4÷ 0w¶Ü .!ò<Sï=  ?  ?­u^: T¬4÷ 0w¶Ü   ?Sï=.!ò<  ?lÜk T¬4÷ 0w¶Ü ¾±B?· ¬>§<  ?»§ T¬4÷ 0w¶Ü ¾±B?· ¬>§<  ??ß­ ¿L" 8Ñþ    Ez&X ÁÙv
+-Y  ¹ |?É7                 ?    ó5?ó5?  ?  ?ó5?ó5?  ?    Óé ¨9P' øì, #ÕæÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     r* (ºÇX 0w¶Ü   ?M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     Cj5Ñ 2   
+-     §ú
+Ð     ¸Êõ2     _øU ¶dëO ¶*s	YÂ_¼¯ªYTÕ w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}            ¡<Ù h]A{ l²úäXº¡Ço2Z gu@âX  +Zhx8  øì,  ó
+j  	  U¿  ó
+j    åÞ?­  ó
+j   oñ   ]zzë   £Æ   ¡<Ù (            6RÅ¿Q ÚÑ©ý ®%k½Ió]Yv.}ÿ 5æ, /        ¡<Ùl²úäXº¡Ço2Z        ÿÿÿÿ /M\WÖ;À [Lh¶; ÚRgWárû^¨;ISK øÑæ~     |z   áCf­S   @@rÚùæ   ÈB}    0ÿÖ@l²úäXº¡Ço2Z        ÿÿÿÿ Ð,ÿÅß¢l²úäXº¡Ço2Z        ÿÿÿÿ ºñ   ÊÈÊµ­û%\«}Æà°¨Æ        ÿÿÿÿ /M\A%Òß 3ÞcÏ Gô¨ÑO¼]àZâ-Mî ³¨  îy}  U+lß  R~¤  X)  ]Ðö  heVR  ?®Ãx  +ØÄe  n!Ë  ûÊÑD  ¸ÏIÞ  ãîk  #ik]  ¼^MÓ  £Í     *nJ¤  £Í     ?C=  £Í     DJ  £Í     ¥ Ô  £Í              Ý]TgúJUW+ð82n4[º
+ZÍ)? Ý]T '   ÞRÄ     gu@â} Q] T¬4÷ 0w¶Ü                 üÇÃØ¿½ 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü   ?  ?  ?  ?°ÍÝ (ºÇX 0w¶Ü >¯·ÉÄ T¬4÷ 0w¶Ü ÒÒ>?ñ?  ?>Êª (ºÇX 0w¶Ü   ?9Î³ T¬4÷ 0w¶Ü 
+]>      ? >Óéd ¿L" 8Ñþ    Ez&X ÁÙv
+- (ºÇX 0w¶Ü   ?æÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z    \ð  
+-     §ú
+Ð     ¸Êõ2     _ø ]0
+ SÞ|·I\½¹'Ô=uL ·aW  ¯\î4ÛM    ñÝÒ T¬4÷ 0w¶Ü   ?  ?  ?  ?Ôº  T¬4÷ 0w¶Ü                 ©8     j2#Þ  AwH           Ý]TW¯6×ÿzwâU¬g_[) Ý]T '   gu@âQ  Q]                 üÇÃØ ðÿQ=
+]>  ? >M4     Ó¢  ¾,Z    \ð  _ø ]0
+ 0t,ÏD½Xà¡*¶Ó%: ·aW  ¯\î4ÛM    ñÝÒ T¬4÷ 0w¶Ü   ?  ?  ?  ?Ôº  T¬4÷ 0w¶Ü                 ©8     j2#Þ  AwH           Ý]T0úJU ¤ÎvdþQYwj<! Ý]T '   ÞRÄ     ù^ñ  gu@â} Q] T¬4÷ 0w¶Ü                 üÇÃØ¿½ 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü   ?ðÿQ=      ?°ÍÝ (ºÇX 0w¶Ü ÍÌL?¯·ÉÄ T¬4÷ 0w¶Ü ðÿQ=          ?Êª (ºÇX 0w¶Ü   ?9Î³ T¬4÷ 0w¶Ü                 Óéd ¿L" 8Ñþ 	   Ez&X ÁÙv
+- (ºÇX 0w¶Ü   ?æÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     \ð  
+-     §ú
+Ð     ¸Êõ2     _øK ¶dëE GGrü\]½·ÿÔu8 Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}            Ý]Tý W¯í rA¯JòS¬&Måtá Ý]T '   gu@â;  üÇÃØ ¿²>ðÿQ=  ? >M4     Ó¢  ¾,Z    \ð  _ø ]0
+ %U2{ÜÖQJ²(±o ·aW  ¯\î4ÛM    ñÝÒ T¬4÷ 0w¶Ü   ?  ?  ?  ?Ôº  T¬4÷ 0w¶Ü                 ©8     j2#Þ  AwH           û:8G £%oú7 2ýzýÚ[¯é¥n gu@â   ³áz¾   ]ú²    £%oú )            û:8N £%oú> ¡Ñ ýôU¡ûÑ-
+ÏÜ gu@â   ³áz¾   ]ú²    £%oú *   -                 ÓU7»sÝ^¾l%Ï#ÿvEffect - Shield Hit      E)Àz wçmàj ­û%\«}Æà°¨Æ _zJûJ  
+-    @  À?  ?Cõ0 .½;³      ?      ?      ¿    ,½;³  Á   @    Íåz           ÖY sì(I Fe=jÉ]ÛnN/¿ Úd^ ÄMè/bº/ ?   ïyÍ     sº     #÷ú q(Ë'          Ý]TðúJUàú>¿. R²8!²à Ý]T +   ÞRÄ (ºÇX 0w¶Ü ÍÌL>gu@âð Q] T¬4÷ 0w¶Ü                 üÇÃØT4  z¸^Z16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü    @          ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü    @ðÿÑ=      ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü ¾±Â?· ,?§<  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü     ñ?   @  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹» ÍÌL=ã     0[6     id;¥     Qu±8 T¬4÷ 0w¶Ü                 M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     ·aW  ÆÒñ
+-B {[­K z¸^ å/® mMÂ   ?>  ?Qu±8 å/® mMÂ    @  À?   @§ú
+Ð     ¸Êõ2     _øU ¶dëO Jv8PX1EFúÍ[· w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}                   û§Õ¬ú_·»G­<ÃBarrier - Control       E)Àa wçmàQ |:_¢ý,hâä® _zJû8  Cõ0 Mï.´      ¿      ?      ?    Mï.´  A   @             ÖJ ½Íû åå4 ßü_:Ë4:!  /    ×v{O~¬Z{É¯1?N        ÿÿÿÿ ®S    Öq ½Íû ;eÎºYÝÝÝcA  V    ×ä­»³ÿ%Y¡
+Uë        ÿÿÿÿ Á6ÖÕ×v{O~¬Z{É¯1?N        ÿÿÿÿ ,!T    ñ«b ¾Îí+ v{O~¬Z{É¯1?N ?XO²  Ð²m  {7¦Ï     /    ÔäÏ>½ÐGd5UE¼ÉÃ_åf        ÿÿÿÿ Á6ÖÕ    Ö ½Íû >½ÐGd5UE¼ÉÃ_åf  }    ×Ìó}"YZT¬k²{l        ÿÿÿÿ °îì×®tÕ,?óPÅ^Ñk¬        ÿÿÿÿ Á6ÖÕ×Á{¿×YÝU·+àdSA        ÿÿÿÿ °îì    6RÅ¿	õBA ®tÕ,?óPÅ^Ñk¬  î    %Öý%ñ[KÌµ8 RÇ+».        RNEGÃ  ÉÉ 
+	²#ä{ »	Í  ïyÍ     ó?8 ºIäWsº ¿ Óé (ºÇX 0w¶Ü     ò5W Z ¼ oXx·,êN  [5 äFV I)@ 4Ùî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `Xå    Öq ½Íû ä­»³ÿ%Y¡
+Uë  V    ×ñ[KÌµ8 RÇ+».        ÿÿÿÿ ±y¾=×¥ú'®o[l¯E_j'        ÿÿÿÿ °îì    û:8G £%oú7 Ìó}"YZT¬k²{l gu@â   ³áz¾   ]ú² %   £%oú &                   ?%ÆEã]]Öóÿf­Barrier - Generated      E)Àz wçmàj ñ[KÌµ8 RÇ+». _zJûJ  
+-   ÈA  pA  @Cõ0 Mï.´      ¿      ?      ?    Mï.´  A   @    Íåz           änp- ·û Uz±,üwX^dÅv×ê vó woUû         6RÅ¿# xÉ¡ wýC
+Yd+Ùº Ü           Ö sì(Y ü7¦g¹ÍT]²~øÈè /bº/ ?   ïyÍ å/® mMÂ   A   @    sº å/® mMÂ       ´B    /        ¹ç®=¢£¼oF±®7í+Ã        ÿÿÿÿ /M\Ý]TúJUü;S/[ôP ì\à¬ó Ý]T '   ÞRÄ     gu@âV Q]õh! ¯ö° T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BR T¬4÷ 0w¶Ü .!ò<Sï=  ?  ?­u^: T¬4÷ 0w¶Ü   ?Sï=.!ò<  ?lÜk T¬4÷ 0w¶Ü ¾±B?· ¬>§<  ?»§ T¬4÷ 0w¶Ü ¾±B?· ¬>§<  ??ß­ ¿L" 8Ñþ    Ez&X ÁÙv
+-Y  ¹ |?É7                 ?    ó5?ó5?  ?  ?ó5?ó5?  ?    Óé ¨9P' øì, #ÕæÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     r* (ºÇX 0w¶Ü   ?üÇÃØõh! ¯ö° T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BR T¬4÷ 0w¶Ü .!ò<Sï=  ?  ?­u^: T¬4÷ 0w¶Ü   ?Sï=.!ò<  ?lÜk T¬4÷ 0w¶Ü ¾±B?· ¬>§<  ?»§ T¬4÷ 0w¶Ü ¾±B?· ¬>§<  ??ß­ ¿L" 8Ñþ    Ez&X ÁÙv
+-Y  ¹ |?É7                 ?    ó5?ó5?  ?  ?ó5?ó5?  ?    Óé ¨9P' øì, #ÕæÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     r* (ºÇX 0w¶Ü   ?M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     Cj5Ñ 2   
+-     §ú
+Ð     ¸Êõ2     _øU ¶dëO 
+aKKSV·E Ç w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}            ¡<Ù h]A{ 9ëÝµ-÷W>Ê`zâû{ gu@âX  +Zhx8  øì,  ó
+j  	  U¿  ó
+j    åÞ?­  ó
+j   oñ   ]zzë   £Æ   ¡<Ù (            6RÅ¿Q ÚÑ©ý VXYà\Ä_ ßIDqk 5æ, /        ¡<Ù9ëÝµ-÷W>Ê`zâû{        ÿÿÿÿ /M\WÖ;À [Lh¶; 	Ä¯03P¡Fº³À øÑæ~     |z   áCf­S   @@rÚùæ   ÈB}    0ÿÖ@9ëÝµ-÷W>Ê`zâû{        ÿÿÿÿ Ð,ÿÅß¢9ëÝµ-÷W>Ê`zâû{        ÿÿÿÿ ºñ   ÊÈÊµ§Tñ¡__¡û½g        ÿÿÿÿ /M\A%Òß 3ÞcÏ ùAaAóVxZW]Àúx~ ³¨  îy}  U+lß  R~¤  X)  ]Ðö  heVR  ?®Ãx  +ØÄe  n!Ë  ûÊÑD  ¸ÏIÞ  ãîk  #ik]  ¼^MÓ  £Í     *nJ¤  £Í     ?C=  £Í     DJ  £Í     ¥ Ô  £Í              Ý]TgúJUW8)Q¼ùU¿ í¯Ãð Ý]T '   ÞRÄ     gu@â} Q] T¬4÷ 0w¶Ü                 üÇÃØ¿½ 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü   ?  ?  ?  ?°ÍÝ (ºÇX 0w¶Ü >¯·ÉÄ T¬4÷ 0w¶Ü ÒÒ>?ñ?  ?>Êª (ºÇX 0w¶Ü   ?9Î³ T¬4÷ 0w¶Ü 
+]>      ? >Óéd ¿L" 8Ñþ    Ez&X ÁÙv
+- (ºÇX 0w¶Ü   ?æÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z    \ð  
+-     §ú
+Ð     ¸Êõ2     _ø ]0
+ vtÈå2Õ[º¾S×:¼ï± ·aW  ¯\î4ÛM    ñÝÒ T¬4÷ 0w¶Ü   ?  ?  ?  ?Ôº  T¬4÷ 0w¶Ü                 ©8     j2#Þ  AwH           Ý]TW¯õÙê¶çáS²cÔëZ)5 Ý]T '   gu@âQ  Q]                 üÇÃØ ðÿQ=
+]>  ? >M4     Ó¢  ¾,Z    \ð  _ø ]0
+ ä)Ñ5²8X½çúÓÂ° ·aW  ¯\î4ÛM    ñÝÒ T¬4÷ 0w¶Ü   ?  ?  ?  ?Ôº  T¬4÷ 0w¶Ü                 ©8     j2#Þ  AwH           Ý]T0úJU  ­°þRX¬ÎóO×UÏ Ý]T '   ÞRÄ     ù^ñ  gu@â} Q] T¬4÷ 0w¶Ü                 üÇÃØ¿½ 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü   ?ðÿQ=      ?°ÍÝ (ºÇX 0w¶Ü ÍÌL?¯·ÉÄ T¬4÷ 0w¶Ü ðÿQ=          ?Êª (ºÇX 0w¶Ü   ?9Î³ T¬4÷ 0w¶Ü                 Óéd ¿L" 8Ñþ 	   Ez&X ÁÙv
+- (ºÇX 0w¶Ü   ?æÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     \ð  
+-     §ú
+Ð     ¸Êõ2     _øK ¶dëE õ`¿o4FSOúÏºU} Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}            Ý]Tý W¯í xYiÀùì^¥Îbõ÷³9 Ý]T '   gu@â;  üÇÃØ ¿²>ðÿQ=  ? >M4     Ó¢  ¾,Z    \ð  _ø ]0
+ >áÛ}ðS Ä¥ü¨d ·aW  ¯\î4ÛM    ñÝÒ T¬4÷ 0w¶Ü   ?  ?  ?  ?Ôº  T¬4÷ 0w¶Ü                 ©8     j2#Þ  AwH           û:8G £%oú7 Á{¿×YÝU·+àdSA gu@â   ³áz¾   ]ú²    £%oú )            û:8N £%oú> ¥ú'®o[l¯E_j' gu@â   ³áz¾   ]ú²    £%oú *   -                 %sè?"_äûÃØe.Effect - Shield Hit      E)Àz wçmàj §Tñ¡__¡û½g _zJûJ  
+-    @  À?  ?Cõ0 Mï.´      ¿      ?      ?    Mï.´  A   @    Íåz           ÖY sì(I ÕÂaÂ}nèX:ñÓ Úd^ ÄMè/bº/ ?   ïyÍ     sº     #÷ú q(Ë'          Ý]TðúJUàð½5¿xTÊeô Ý]T +   ÞRÄ (ºÇX 0w¶Ü ÍÌL>gu@âð Q] T¬4÷ 0w¶Ü                 üÇÃØT4  z¸^Z16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü    @          ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü    @ðÿÑ=      ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü ¾±Â?· ,?§<  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü     ñ?   @  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹» ÍÌL=ã     0[6     id;¥     Qu±8 T¬4÷ 0w¶Ü                 M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     ·aW  ÆÒñ
+-B {[­K z¸^ å/® mMÂ   ?>  ?Qu±8 å/® mMÂ    @  À?   @§ú
+Ð     ¸Êõ2     _øU ¶dëO NVã¾V­KWrÇE+a w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}                   ¦ÎÂ«ÝjPµ"ÁØTurret - Medium - Beam - Gun1       E)Àa wçmàQ s+Ù!°T¡ÕA£aó _zJû8  Cõ0   ?              ?              ?    þÿÏ@   A         ÖR sì(B °èÿ+%S¼B2jîË Úd^ ÄMè/bº/ ?   ïyÍ     sº     q(Ë'          >ÿ®b U ¼{îiuQ­èîÜ÷ gu@â  ³qX            @~    @K   Ð@õ Qk   @@H      Q   WðèN~kãÃ¦Pt£An        ÿÿÿÿ °îìWðèÉ%®ª3Ñ5T¤¿0bÇa        ÿÿÿÿ ñò3äãi<²_[>©[ºN©8ºò¦        ÿÿÿÿ èWäãi<ó%y°±VááøE?        ÿÿÿÿ ñò3´¶ôNÉ%®ª3Ñ5T¤¿0bÇa        ÿÿÿÿ ÿá´¶ôNJBvª ]§{Ê]Sp        ÿÿÿÿ °îì<9V²üà{·íc_µÉ%­ ä        ÿÿÿÿ °îì<9V\½w¼%Rí"]Ô        ÿÿÿÿ Á6ÖÕ÷]í×1ÛÄ)[c² yi        ÿÿÿÿ °îì÷] J+À¾Y4ÞQRÜ        ÿÿÿÿ Á6ÖÕ÷]ôëVÿhPUÙÓ	Jë       ÿÿÿÿ ÿáImó%y°±VááøE?        ÿÿÿÿ ÿáIm²_[>©[ºN©8ºò¦        ÿÿÿÿ %±þ/Im²_[>©[ºN©8ºò¦        ÿÿÿÿ z¸^   SHÄ
+ì^L%bÀG%        ÿÿÿÿ /M\Ý]TÂúJU²É%®ª3Ñ5T¤¿0bÇa Ý]T    ÞRÄ     ù^ñ  gu@â{ Q] T¬4÷ 0w¶Ü                 üÇÃØõh! ¯ö T C9ã, T¬4÷ 0w¶Ü â¥ì<â¥ì<   @  ?W©BR     ­u^: T¬4÷ 0w¶Ü    @â¥ì<â¥ì<  ?lÜk     »§ T¬4÷ 0w¶Ü ¾±Â?· ,?§<  ??ßd ¿L" 8Ñþ    Ez&X ÁÙv
+- (ºÇX 0w¶Ü    BæÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     r* (ºÇX 0w¶Ü   ?M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z    ·aW  ÆÒñ\ð  
+-p ¿ Óéd ¿L" 8Ñþ    Ez&X ÁÙv
+- (ºÇX 0w¶Ü   àAæÏ¦^ (ºÇX 0w¶Ü   ?ã     0[6     id;¥     §ú
+Ð     ¸Êõ2 å/® mMÂ           @@_ø_ ¶dëY -»;SÚ]³|g+Ö/ w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}   % \ê1         Ý]TÎúJU¾ó%y°±VááøE? Ý]T    ÞRÄ     ù^ñ  gu@â Q] T¬4÷ 0w¶Ü                 üÇÃØ¿½ 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü                 °ÍÝ (ºÇX 0w¶Ü 333?¯·ÉÄ T¬4÷ 0w¶Ü 
+]>¹É©;    >Êª (ºÇX 0w¶Ü   ?9Î³ T¬4÷ 0w¶Ü   ?ðÿQ=     ?Óéd ¿L" 8Ñþ    Ez&X ÁÙv
+- (ºÇX 0w¶Ü   ?æÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z    ·aW  ÆÒñ\ð  
+-p ¿ Óéd ¿L" 8Ñþ    Ez&X ÁÙv
+- (ºÇX 0w¶Ü   @@æÏ¦^ (ºÇX 0w¶Ü   ?ã     0[6     id;¥     §ú
+Ð     ¸Êõ2 å/® mMÂ           @@_ø_ ¶dëY NÅí/Z[ _ª| w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}   % \ê1         è~ªÊR èß9B ²_[>©[ºN©8ºò¦ á[&    ù^ñ  
+-     §ú
+Ð     ¸Êõ2              û:8G £%oú7 JBvª ]§{Ê]Sp gu@â   ³áz¾   ]ú²    £%oú             û:8N £%oú> N~kãÃ¦Pt£An gu@â   ³áz¾   ]ú²    £%oú    -           û:8G £%oú7 ²üà{·íc_µÉ%­ ä gu@â   ³áz¾   ]ú²    £%oú             û:8N £%oú> í×1ÛÄ)[c² yi gu@â   ³áz¾   ]ú²    £%oú    -           6RÅ¿# õBA \½w¼%Rí"]Ô           6RÅ¿# õBA  J+À¾Y4ÞQRÜ                 ²Í,UÒÌ_`wÅÏÂ©[Turret_AimingBeam       E)ÀÈ wçmàj ôëVÿhPUÙÓ	Jë _zJûJ  
+-   @@  @@  @@Cõ0   ?              ?              ?    þÿÏ@  A\ð  V    DREOTôÖ!­Æ^¢ÜAJ× ò        ÿÿÿÿ z¸^DREOôëVÿhPUÙÓ	Jë>    ÿÿÿÿ ñò3    ÖR sì(B ÈÑé±°W´ú)©E*²; Úd^ ÄMè/bº/ ?   ïyÍ     sº     q(Ë'          Ý]T.úJUTôÖ!­Æ^¢ÜAJ× ò Ý]T     ÞRÄ     ù^ñ  gu@âÓ Q] T¬4÷ 0w¶Ü                 üÇÃØ T¬4÷ 0w¶Ü   ?  ?  ?  ?M4uõh! ¯ö° T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BR T¬4÷ 0w¶Ü mÊ>Ïs?  @  ?­u^: T¬4÷ 0w¶Ü ÷@¸qv>¸qv>  ?lÜk T¬4÷ 0w¶Ü ¾±B@· ¬?§=  ?»§ T¬4÷ 0w¶Ü   @· ¬?§=  ??ß ðÈñô ×ÅÐ. òC¸{ÙÓq  ¹ |?ÉO             ÀB  ?      ?    =  ¤BôÎ:ìÿ¿ôÎ:ìÿ¿>  ?  ?      ?    Óé ¨9P' øì, #Õ1ÏÐJ (ºÇX 0w¶Ü   ?r* (ºÇX 0w¶Ü   ?Ó¢  ¾,Z    
+-ñ Ã3Ù K6²·7             ?  ?    Èô1>Æ|¿>>  ?      ?    ÝµÀ7             ?  ?    Èô1>Æ|¿>>  ?      ?    gW¼Y7             ?  ?    Èô1>Æ|¿>>  ?      ?    Óé. Ë-ñä øì, #Õ
+-   ?ã   áDæÏ¦^     §ú
+Ð     ¸Êõ2     _ø                       LM4¦Sª0ìá-¤<@Payload - Target1      E)Àh wçmàX HÄ
+ì^L%bÀG% _zJû8  Cõ0   ?              ?              ?           AÍåz           6RÅ¿- xÉ¡ %ÒøñA[­P(Èd !	Òd ø?Ö-         änp# ·û [ôíPC÷ÙùZ           "j b  8äo× V¹ÇR« -` S`  ZQd     ÞRÄ     2¯>g     GÏJ     U¿  ó
+j    åÞ?­  ó
+j     (Ä  ó
+j    Ñ   C         6RÅ¿¼õBA }&ÁñY¹vÖw Ùÿ     %Öý%~öZ|À7X¢kµÓ3(        RNEG¿  ÉÉ 
+	²#ä{ »	Í  ïyÍ å/® mMÂ   À        ó?8 ºIäWsº     ò5W Z ¼ Ú×q©,êN  [5 äFV I)@ 4Ùî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `Xå%Öý%~öZ|À7X¢kµÓ3(        RNEG¿  ÉÉ 
+	²#ä{ »	Í  ïyÍ å/® mMÂ   @        ó?8 ºIäWsº     ò5W Z ¼ Ú×q©,êN  [5 äFV I)@ 4Ùî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `Xå%Öý%Û(4]XÂJ¨g        RNEG«  ÉÉ 
+	²#ä{ »	Í  ïyÍ     ó?8 ºIäWsº     ò5W Z ¼ Ú×q©,êN  [5 äFV I)@ 4Ùî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `Xå           ¡Û9Û5T¶1IÁÑPayload - BeamCenter1      E)Àh wçmàX Û(4]XÂJ¨g _zJû8  Cõ0   ?              ?              ?           AÍåz           änp# ·û ï#
+â[.}UI¬TÈõK!           6RÅ¿- xÉ¡ nTLÙø_¨tFö¶ !	Òd ø?Ö-         Öy sì(B 0åÇ¡:ÝR¡µ>û:S Úd^ ÄMè/bº/ ?   ïyÍ     sº     q(Ë' /    þÝ+ÌÛ(4]XÂJ¨g        ÿÿÿÿ ±y¾=    "j%b y YM³oA"W¡¯w}· SL  ZQd   BÞRÄ     U¿  ó
+j    åÞ?­  ó
+j     (Ä  ó
+j    aúìÊ   @Ñ  C¤        ÊX3Díx ò_§ü¦¼êÁ        ÿÿÿÿ /M\Reþíx ò_§ü¦¼êÁ        ÿÿÿÿ /M\ÊÈÊµK©478zY =CÊÉØ        ÿÿÿÿ /M\<Ûu¾íx ò_§ü¦¼êÁ        ÿÿÿÿ /M\¶dëéb Ù°qÇÖ_ _¬°É ÞRÄ     ý=x  )Â¥[ 2xW 8Ñþ "   Ez&X ÁÙv1À+  )Bõü 2xW 8Ñþ #   Ez&X ÁÙvÑ  C+jÛM (ºÇX 0w¶Ü   @Á #ò õh! ¯ö° T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BR T¬4÷ 0w¶Ü mÊ>Ïs?  @  ?­u^: T¬4÷ 0w¶Ü ÷@¸qv>¸qv>  ?lÜk T¬4÷ 0w¶Ü ¾±B@· ¬?§=  ?»§ T¬4÷ 0w¶Ü ¾±B@· ¬?§=  ??ß %R´ @ÊÐ    @p ¹»    ?r* (ºÇX 0w¶Ü   ?ÑÜQU (ºÇX 0w¶Ü    BÙ~ (ºÇX 0w¶Ü ÍÌ¬?C T¬4÷ 0w¶Ü   @A  @A  @A  ?7§ð T¬4÷ 0w¶Ü   ?  ?  ?  ?R}
+ (ºÇX 0w¶Ü    A/¥ùû (ºÇX 0w¶Ü Y?é¨µ T¬4÷ 0w¶Ü               ?t«4 (ºÇX 0w¶Ü     Îú= (ºÇX 0w¶Ü     õ§®f ¶dë` ×b×ÝbüZö- þ w1 $   Ý{²È   ?  ?  ?  ?TóÙ©     ¨(Æ ©8     n§c}   % \ê1         ósÛª`íi:©PÆfËÊv[¬%éÈÉ	 ÞRÄ     ù^ñ  íg§° T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BR T¬4÷ 0w¶Ü ®þ;¤Èø>  À?  ?­u^: T¬4÷ 0w¶Ü   À?®þ;H<  ?lÜk T¬4÷ 0w¶Ü   À?<ü]?Ý%¼=  ?»§ T¬4÷ 0w¶Ü   À?<ü]?Ý%¼=  ?Ó¢  ¾,Z .   ý=x  )Â¥[ 2xW 8Ñþ "   Ez&X ÁÙv1À+  )Bõü 2xW 8Ñþ #   Ez&X ÁÙvlkÐ< (ºÇX 0w¶Ü   4B                Fe±i_tW¡r©|Payload - Sides1      E)Ào wçmà_ ~öZ|À7X¢kµÓ3( _zJû8  Cõ0   ?              ?              ?            \ð  Íåz           änp# ·û #m Â×:_­pÑ%-           6RÅ¿- xÉ¡ Lú§ÅV8Q7+Ù7F !	Òd ø?Ö-         Ö sì(I çcßµZ ªa3¿$¶Ú Úd^ ÄMè/bº/ ?   ïyÍ     sº     #÷ú q(Ë' /    þÝ+Ì~öZ|À7X¢kµÓ3(        ÿÿÿÿ ±y¾=    "jb o Ç6L!]°Eªò SL  ZQd    BÞRÄ     U¿  ó
+j    åÞ?­  ó
+j     (Ä  ó
+j    Ñ  C¤        ÊX3Díx ò_§ü¦¼êÁ        ÿÿÿÿ /M\Reþíx ò_§ü¦¼êÁ        ÿÿÿÿ /M\ÊÈÊµK©478zY =CÊÉØ        ÿÿÿÿ /M\<Ûu¾íx ò_§ü¦¼êÁ        ÿÿÿÿ /M\       E[MÑÿ	^!9hÇ ½Effect - Beam Hit1      E)Àh wçmàX íx ò_§ü¦¼êÁ _zJû8  Cõ0   ?              ?              ?        ½7µÍåz           6RÅ¿# xÉ¡ qÛ>: (YQ¬C¶àfô           änp# ·û t£^å\Q]¥336dáì»           Ý]TÇúJU·dHñçh9ZÜa±±ý Ý]T    ÞRÄ     ù^ñ  gu@âè  Q] T¬4÷ 0w¶Ü                 üÇÃØ T C9ã, T¬4÷ 0w¶Ü ¹É©?¹É©?  C  ?W©BR     ­u^: T¬4÷ 0w¶Ü   C¹É©?¹É©?  ?lÜk     »§ T¬4÷ 0w¶Ü ¾±BB· ¬A§?  ?M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     ·aW  ÆÒñ
+-& ¿ Óé %R´ @ÊÐ   À@p ¹»   ?§ú
+Ð     ¸Êõ2     _øU ¶dëO h:Äüv^õÚu#ÿ w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}            ósÛªÄÌ±áª~1,\¹bsjöÐbò ÞRÄ     íg§° T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BR T¬4÷ 0w¶Ü pÑ?¬×?   @  ?­u^: T¬4÷ 0w¶Ü    @\\?\\?  ?lÜk T¬4÷ 0w¶Ü /¼?ä¿Q?¬À>  ?»§ T¬4÷ 0w¶Ü /¼?ä¿Q?¬À>  ?Ó¢  ¾,Z .   lkÐ< (ºÇX 0w¶Ü   B¿:                     NOñ¾I®Òó½Îí¶Core Upgrade      E)Àr wçmàb ÃûPóÁ´H3.³ÔÜ| _zJû8  Cõ0   ?              ?              ?            Íåz  ºs8 .            ½ñ]Ç³ OòY£ ¼³'D Ooôæ³¡ù iEk sÊèÐréO     l¥     ;ý±b $÷l4   ´C{¢#     ÄÔk¾   ?ªO+    ?³¤   ?	õÚ _   nl¾   D)õ.³     xçX    Z:	8     ä>ñ^           WÖ;Y [Lh¶I ù»R±äL g¥SÁ¼h kK|µ %KI øÑæ~   C|z   zCf­S   ?rÚùæ    A                :¾ªÚäN¨3ÉÅNzCore Upgrade      E)Àr wçmàb ÊËZé ÂJö}rk _zJû8  Cõ0   ?              ?              ?            Íåz  ºs8 /            ½ñ]Ç³ OòY£ :¢Ñh¢SAØ6TO© iEk sÊèÐréO     l¥     ;ý±b $÷l4   ´C{¢#     ÄÔk¾   ?ªO+    ?³¤   ?	õÚ _   nl¾   D)õ.³     xçX    Z:	8     ä>ñ^           WÖ;Y [Lh¶I ÄXCÐ)zÝL¹ª<ÑÍë kK|µ %KI øÑæ~   ÈC|z   Cf­S   ?rÚùæ    A                ÍüAâtB¾ÃßpÚACore Upgrade      E)Àr wçmàb úöÒÞ½§O®/ÞÁ _zJû8  Cõ0   ?              ?              ?            Íåz  ºs8 0            ½ñ]Ç³ OòY£ ¯³¤·ûB30£ß iEk sÊèÐréO     l¥     ;ý±b $÷l4   ´C{¢#     ÄÔk¾   ?ªO+    ?³¤   ?	õÚ _   nl¾   D)õ.³     xçX    Z:	8     ä>ñ^           WÖ;Y [Lh¶I oÊ½mIì[¬í}Ôï kK|µ %KI øÑæ~   úC|z   ¯Cf­S   ?rÚùæ    A                Þ`ý0û{û]ò´wóÂCore Upgrade      E)Àr wçmàb h[!yD[¦º?ZÅ7©Í _zJû8  Cõ0   ?              ?              ?            Íåz  ºs8 1            ½ñ]Ç³ OòY£ ~÷[Z¡ÁØÐx×D iEk sÊèÐréO     l¥     ;ý±b $÷l4   ´C{¢#     ÄÔk¾   ?ªO+    ?³¤   ?	õÚ _   nl¾   D)õ.³     xçX    Z:	8     ä>ñ^           WÖ;Y [Lh¶I 
+ÄPhjPhÒKJÑ kK|µ %KI øÑæ~   D|z   ÈCf­S   ?rÚùæ    A                ¦nÿ§yÑF¬EáÁÐEHUD - Ship Info      E)À wçmàX `ey¼¾!C¥R	³Í _zJû8  Cõ0   ?              ?              ?   @      èÁÍåz  /    þ|®wÜL>º\pÙgÑí        ÿÿÿÿ Á6ÖÕ    iðÈî @k u$Ä9#ÔH¿sL4èõ! XÖ8 õÕ>  ?ç<>  ?¢Ò°% ÐÐ>ÓV*?  ?  ?¹rÊ   ?y-à=y-à=  ?E! Ët{?¹3y?9>  ?   ©'Ï>Û:a¥ÁKg_Fyõç        ÿÿÿÿ mkÐ©'Ïlê<ZzY¹7fw+        ÿÿÿÿ mkÐ:âÕè$!ñcJk{ñu©?Þ        ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?  ?  ?  ?íç?Ý     :âÕÏÆ:LA°èárh»Ñ_        ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü õÕ>  ?ç<>  ?íç?Ý     :âÕyÈ¼M¬`ýr`õé        ã©ñ   .     :âÕî]Èí5r>K´ß\{ù«m        ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?  ?  ?  ?íç?Ý     :âÕ.SÓ»ø6H¥Cï¼~Aõ        ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü  ¯<¢P?      ?íç?Ý     KÒ\Ölê<ZzY¹7fw+        ÿÿÿÿ ñò3uàlê<ZzY¹7fw+        ÿÿÿÿ ÿá	ö1Z°] ëF°k{Ê        ÿÿÿÿ Á6ÖÕ9n"è$!ñcJk{ñu©?Þ    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü -[>-[>-[>  ?íç?Ý     9n"ÏÆ:LA°èárh»Ñ_    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?y-à=y-à=  ?íç?Ý     9n".SÓ»ø6H¥Cï¼~Aõ    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?          ?íç?Ý     9n"yÈ¼M¬`ýr`õé    
+   ã©ñ   .    9n"î]Èí5r>K´ß\{ù«m    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?  ?  ?  ?íç?Ý     TU^kFÍJÛllNº×}Ü1Ç        ÿÿÿÿ Á6ÖÕ,Ò`QÍÿLÀÿ<M¾sà(        ÿÿÿÿ Á6ÖÕñ¾a>Û:a¥ÁKg_Fyõç        ÿÿÿÿ ûäÝñ¾alê<ZzY¹7fw+        ÿÿÿÿ ûäÝ¯^%cyÈ¼M¬`ýr`õé    
+   ã©ñ   .    ¯^%cÏÆ:LA°èárh»Ñ_    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü ÐÍ>D(?  ?  ?íç?Ý     ¯^%cî]Èí5r>K´ß\{ù«m    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?  ?  ?  ?íç?Ý     ¯^%cè$!ñcJk{ñu©?Þ    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?  ?  ?  ?íç?Ý     ¯^%c.SÓ»ø6H¥Cï¼~Aõ    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü     åà>  ?  ?íç?Ý     }in»ÄËe.ñKØl*Õç        ÿÿÿÿ Á6ÖÕH¨OÈñîk®O]w£        ÿÿÿÿ Á6ÖÕ?+.SÓ»ø6H¥Cï¼~Aõ    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?^ï>      ?íç?Ý     ?+î]Èí5r>K´ß\{ù«m    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?  ?  ?  ?íç?Ý     ?+è$!ñcJk{ñu©?Þ    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü   ?  ?  ?  ?íç?Ý     ?+ÏÆ:LA°èárh»Ñ_    
+   ãw>V  ÞRÄ"  qq Ý@ñÞRÄ (ºÇX 0w¶Ü   ?qçX T¬4÷ 0w¶Ü Ü¸}?¹3y?9>  ?íç?Ý     ?+yÈ¼M¬`ýr`õé    
+   ã©ñ   .       ¤vSúí÷/y\V¦ÉVÒáO®{        ÿÿÿÿ /M\´¼e¶Ò×GEF¿ÖÓ{zÅG        ÿÿÿÿ /M\3|w¦äåI¨^ùb Y«        ÿÿÿÿ /M\72÷Åî JçéíN½L;®ÑÃáu        ÿÿÿÿ /M\Û{PÏJv£ÍÊN³|LFw*        ÿÿÿÿ /M\í¹ÙÙ#aÍJ¯pI©.@ÐIK9        ÿÿÿÿ /M\v¸~ã5Ø´ã/_¯Ë'¨F        ÿÿÿÿ /M\Ö sì( "AdPÐNf Úd^ ÄMè/bº/    b 	 E/ïyÍH -Y¾P K6²· (ºÇX 0w¶Ü    @ÝµÀ (ºÇX 0w¶Ü     gW¼Y (ºÇX 0w¶Ü   èÁsº              $QÀ_ =/kÐO 'LHùÙAþRîO 
+-     §ú
+Ð å/® mMÂ             ó?8 p	X%¸Êõ2              Ö4 ê($ ºa1È£@Xg´£ AèSý    -e          ÖLàÿc jdÝ ÌcJzJLÍZ /bº/    ò        ¢mê»î JçéíN½L;®ÑÃáu        ÿÿÿÿ /M\¢mê»#aÍJ¯pI©.@ÐIK9        ÿÿÿÿ /M\¢mê»lê<ZzY¹7fw+        ÿÿÿÿ /M\¢mê»>Û:a¥ÁKg_Fyõç        ÿÿÿÿ /M\¢mê»«Æ_Ú9@§H ±ßñºÑ        ÿÿÿÿ /M\¢mê»WP¿°Ç#N ¯à¤>        ÿÿÿÿ /M\D×° 48×Æ' ~þArÄG@XãÒÞ4d y¦ 2   "(? 3   V    Så|ÜL>º\pÙgÑí        ÿÿÿÿ Á6ÖÕé´åÜL>º\pÙgÑí        ÿÿÿÿ Á6ÖÕ    ©x ¯³Â&% ~ô=7*ýéX±,· ß¶.V   ÑUm 4   V    ìD=|sTò,^²y6Âù        ÿÿÿÿ Á6ÖÕíÿ1`ey¼¾!C¥R	³Í        ÿÿÿÿ ñò3    ©x ¯³Â&% =|sTò,^²y6Âù ß¶.V   ÑUm 5   V    ìD`ey¼¾!C¥R	³Í        ÿÿÿÿ ñò3íÿ1`ey¼¾!C¥R	³Í        ÿÿÿÿ ÿá    ÖJ ½Íû ÜL>º\pÙgÑí  /    ×~ô=7*ýéX±,·        ÿÿÿÿ Á6ÖÕ    Ö# ½Íû =hô'
+±Yp7ëvj           Ö# ½Íû ÅsSQ{\Y¾ï"ÏQS                 mÅìÌ$Gaä³ä0Icons       E)Às wçmàc >Û:a¥ÁKg_Fyõç _zJûJ  
+-   A  A  ACõ0   ?              ?              ?«ÏKA    ?FúÁ         áÆï× .°(Ç yÈ¼M¬`ýr`õé Î$p   ©ÆÅ   V¼ÛÈ T¬4÷ 0w¶Ü  ¯<¢P?      ? V¼ÛÈ T¬4÷ 0w¶Ü     åà>  ?  ? V¼ÛÈ T¬4÷ 0w¶Ü   ?          ? V¼ÛÈ T¬4÷ 0w¶Ü   ?^ï>      ?{7¦Ï     ¸             Ý]Tº W¯ª XÔ?n=HfeÒ¸Øá Ý]T 6   gu@âB  üÇÃØ   ?  ?  ?  ?X?< M4     Ó¢  ¾,Z    \ð  _ø? Å2C9 ás×§f±K õk¬â ÇF²¥ 7   Ôe     ïðm S»]n§c}            Ý]T W¯ )VFûÊbÏ&w Ý]T 6   gu@â,  X?< M4     Ó¢  ¾,Z    \ð  _ø5 Å2C/ '¥·ÑUaL¤´Ì¾õ%² ÇF²¥ 8   Ôe     n§c}            Ý]Tº W¯ª ¡=sþ·O¢¾¶Nj+ÙÐ Ý]T 6   gu@âB  üÇÃØ   ?  ?  ?  ?X?< M4     Ó¢  ¾,Z    \ð  _ø? Å2C9 <åqzDæ Dð,è^ z ÇF²¥ 9   Ôe     ïðm S»]n§c}            Ý]Tº W¯ª f[QË
+C¶>k´ < Ý]T 6   gu@âB  üÇÃØ   ?  ?  ?  ?X?< M4     Ó¢  ¾,Z    \ð  _ø? Å2C9 L&ØÌ,'·Eo°åäk ÇF²¥ :   Ôe     ïðm S»]n§c}            Ö¿ ½Íû kFÍJÛllNº×}Ü1Ç  ¤    ×¡=sþ·O¢¾¶Nj+ÙÐ        ÿÿÿÿ ñò3×f[QË
+C¶>k´ <        ÿÿÿÿ ñò3×XÔ?n=HfeÒ¸Øá        ÿÿÿÿ ÿá×)VFûÊbÏ&w        ÿÿÿÿ ñò3    Ö¿ ½Íû 1Z°] ëF°k{Ê  ¤    ×¡=sþ·O¢¾¶Nj+ÙÐ        ÿÿÿÿ ñò3×f[QË
+C¶>k´ <        ÿÿÿÿ ñò3×XÔ?n=HfeÒ¸Øá        ÿÿÿÿ ñò3×)VFûÊbÏ&w        ÿÿÿÿ ÿá    Ö¿ ½Íû OÈñîk®O]w£  ¤    ×¡=sþ·O¢¾¶Nj+ÙÐ        ÿÿÿÿ ñò3×f[QË
+C¶>k´ <        ÿÿÿÿ ñò3×XÔ?n=HfeÒ¸Øá        ÿÿÿÿ ÿá×)VFûÊbÏ&w        ÿÿÿÿ ñò3    Ö¿ ½Íû n»ÄËe.ñKØl*Õç  ¤    ×¡=sþ·O¢¾¶Nj+ÙÐ        ÿÿÿÿ ñò3×f[QË
+C¶>k´ <        ÿÿÿÿ ÿá×XÔ?n=HfeÒ¸Øá        ÿÿÿÿ ñò3×)VFûÊbÏ&w        ÿÿÿÿ ñò3    Ö¿ ½Íû QÍÿLÀÿ<M¾sà(  ¤    ×¡=sþ·O¢¾¶Nj+ÙÐ        ÿÿÿÿ ÿá×f[QË
+C¶>k´ <        ÿÿÿÿ ñò3×XÔ?n=HfeÒ¸Øá        ÿÿÿÿ ñò3×)VFûÊbÏ&w        ÿÿÿÿ ñò3           86qt^q-´ÊDev Icon       E)ÀÈ wçmàj lê<ZzY¹7fw+ _zJûJ  
+-   @  @  @Cõ0   ?              ?              ?«ÏKA
+×£;  èÁ\ð  V    DRDO>Û:a¥ÁKg_Fyõç        ÿÿÿÿ ÿáDREO>Û:a¥ÁKg_Fyõç        ÿÿÿÿ ñò3    Ý]T³ W¯£ àÛ?ô+]l[¨ibæñ Ý]T 6   gu@â;  üÇÃØ   ?  ?  ?  ?X?< M4     Ó¢  ¾,Z    _ø? Å2C9 Çb*~L»Uì?÷é2 ÇF²¥ ;   Ôe     ïðm S»]n§c}                   p:÷ÝÐ@¹Ñ{!-Player Name       E)Àa wçmàQ «Æ_Ú9@§H ±ßñºÑ _zJû8  Cõ0   ¿    .½»3.½»3.½;³  ?í­'  ?.½;3   @      Â         MÉ! _ ÓÈO Jv£ÍÊN³|LFw* &< <   pE\³ <   _ <   Ù· Òu6^ËÂóÖ   À?ù¹             MÉ! _ ÓÈO úí÷/y\V¦ÉVÒáO®{ &< <   pE\³ =   _ =   Ù· Òu6^ËÂóÖ   à?ù¹             MÉ! _ ÓÈO 5Ø´ã/_¯Ë'¨F &< <   pE\³ =   _ =   Ù· Òu6^ËÂóÖ   @ù¹                    b±¡PHïòí:Level       E)Àa wçmàQ WP¿°Ç#N ¯à¤> _zJû8  Cõ0   ¿    .½»3.½»3.½;³  ?í­'  ?.½;3  À¿    ÍÌÖÁ         MÉ! U ÓÈE ¦äåI¨^ùb Y« &< >   pE\³ >   _ >   m¼u§ aMIù¹ ?                   ªfèä%B¬X
+Ò
+Shield Bar       E)Às wçmàc î JçéíN½L;®ÑÃáu _zJûJ  
+-    A  ?  À?Cõ0   ?              ?              ?   @      ÞÁ         Ö  sì( úÊfÞR¼A¿æOg× \ZW  Úd^ ÄMè/bº/    b 	 E/ïyÍH -Y¾P K6²· (ºÇX 0w¶Ü     ÝµÀ (ºÇX 0w¶Ü     gW¼Y (ºÇX 0w¶Ü   @?sº              $QÀ_ =/kÐO mÔð·IKGÖØË 
+-     §ú
+Ð å/® mMÂ             ó?8 p	X%¸Êõ2              Ö4 ê($ ½bùe%IC¢ûÒ.:O AèSý    -e          Ö{ Làÿc x×ÍÇ®EKþiùÓ /bº/    V        ¢mê»`¬ZN«F¢¼>¾äñ        ÿÿÿÿ /M\¢mê»HÉ{ÁG¼!Åhg(ó        ÿÿÿÿ /M\      \Øå^è0F¥hd¬µÿShield Bar Display       E)Às wçmàc HÉ{ÁG¼!Åhg(ó _zJûJ  
+-    A  ?  À?Cõ0   ¿    nIa2      ?    nIa²      ¿   @      ÞÁ         Ý]TyW¯iÏÆ:LA°èárh»Ñ_ Ý]T    gu@âú  üÇÃØ   ?  ?  ?  ?M4Ê éÖ¹î UßgW| ¿L" 8Ñþ @   Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ¿æÏ¦^ (ºÇX 0w¶Ü   ?ã     0[6 (ºÇX 0w¶Ü     id;¥ (ºÇX 0w¶Ü   ?¾;º: (ºÇX 0w¶Ü     1ÏÐJ (ºÇX 0w¶Ü     ÙÓ (ºÇX 0w¶Ü     Ó¢  ¾,Z    _øF Å2C@ êË·Jn½ðìt ÇF²¥ A   Ôe     (_vA    «Nðô n§c}                   0é3QyBHç¸aåçOvershield Bar Display       E)Às wçmàc `¬ZN«F¢¼>¾äñ _zJûJ  
+-    A  ?  À?Cõ0   ¿    nIa2      ?    nIa²      ¿   @      ÞÁ         Ý]TyW¯iè$!ñcJk{ñu©?Þ Ý]T    gu@âú  üÇÃØ   ?  ?  ?  ?M4Ê éÖ¹î UßgW| ¿L" 8Ñþ @   Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ¿æÏ¦^ (ºÇX 0w¶Ü    @ã     0[6 (ºÇX 0w¶Ü     id;¥ (ºÇX 0w¶Ü   ?¾;º: (ºÇX 0w¶Ü     1ÏÐJ (ºÇX 0w¶Ü     ÙÓ (ºÇX 0w¶Ü     Ó¢  ¾,Z    _øF Å2C@ ¡M!Àr9A ¨jàÉ ÇF²¥ A   Ôe     (_vA    «Nðô n§c}                   u|.(¸ÁJµ1V7ß.	Armor Bar       E)Às wçmàc #aÍJ¯pI©.@ÐIK9 _zJûJ  
+-    A  ?  À?Cõ0   ?              ?              ?   @      òÁ         Ö  sì( îPnöýìLNÞ§ÿÇÀÝn \ZW  Úd^ ÄMè/bº/    b 	 E/ïyÍH -Y¾P K6²· (ºÇX 0w¶Ü     ÝµÀ (ºÇX 0w¶Ü     gW¼Y (ºÇX 0w¶Ü   @¿sº              $QÀ_ =/kÐO 0y¹6#ý@Igv÷°øß 
+-     §ú
+Ð å/® mMÂ             ó?8 p	X%¸Êõ2              Ö4 ê($ §± @äÌH 3¡n9) AèSý    -e          Ö{ Làÿc W9ú<M dFV;ßï /bº/    V        ¢mê»ñØA»ïF61x¨
+Z        ÿÿÿÿ /M\¢mê»h{sæWO~kw+        ÿÿÿÿ /M\      F]G&ªC­w"»&[Armor Bar Display       E)Às wçmàc h{sæWO~kw+ _zJûJ  
+-    A  ?  À?Cõ0   ¿    nIa2      ?    nIa²      ¿   @      òÁ         Ý]TyW¯i.SÓ»ø6H¥Cï¼~Aõ Ý]T    gu@âú  üÇÃØ   ?  ?  ?  ?M4Ê éÖ¹î UßgW| ¿L" 8Ñþ @   Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ¿æÏ¦^ (ºÇX 0w¶Ü   ?ã     0[6 (ºÇX 0w¶Ü     id;¥ (ºÇX 0w¶Ü   ?¾;º: (ºÇX 0w¶Ü     1ÏÐJ (ºÇX 0w¶Ü     ÙÓ (ºÇX 0w¶Ü     Ó¢  ¾,Z    _øF Å2C@ ªA	¿%¿Dº7hG«öÚz ÇF²¥ A   Ôe     (_vA    «Nðô n§c}                   ¡¥fÃ³«$I)P&{¼Overarmor Bar Display       E)Às wçmàc ñØA»ïF61x¨
+Z _zJûJ  
+-    A  ?  À?Cõ0   ¿    nIa2      ?    nIa²      ¿   @      òÁ         Ý]TyW¯iî]Èí5r>K´ß\{ù«m Ý]T    gu@âú  üÇÃØ   ?  ?  ?  ?M4Ê éÖ¹î UßgW| ¿L" 8Ñþ @   Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ¿æÏ¦^ (ºÇX 0w¶Ü    @ã     0[6 (ºÇX 0w¶Ü     id;¥ (ºÇX 0w¶Ü   ?¾;º: (ºÇX 0w¶Ü     1ÏÐJ (ºÇX 0w¶Ü     ÙÓ (ºÇX 0w¶Ü     Ó¢  ¾,Z    _øF Å2C@ Ùo:4!F¦Ä07²Ñ ÇF²¥ A   Ôe     (_vA    «Nðô n§c}                   ÑiMÈ_µ¥å3Effect - Beam Absorb      E)Àh wçmàX K©478zY =CÊÉØ _zJû8  Cõ0   ?              ?              ?        ½7µÍåz           6RÅ¿# xÉ¡ É2ÈÊÿ\[lT¹=£           änp# ·û (MorþËAS«µp:Üâ#           Ý]TÇúJU·¯hý$N]9êÇ#¨Eâ Ý]T    ÞRÄ     ù^ñ  gu@âè  Q] T¬4÷ 0w¶Ü                 üÇÃØ T C9ã, T¬4÷ 0w¶Ü ¹É©?¹É©?  C  ?W©BR     ­u^: T¬4÷ 0w¶Ü   C¹É©?¹É©?  ?lÜk     »§ T¬4÷ 0w¶Ü ¾±BB· ¬A§?  ?M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     ·aW  ÆÒñ
+-& ¿ Óé %R´ @ÊÐ   À@p ¹»   ?§ú
+Ð     ¸Êõ2     _øU ¶dëO Ñ³Âì&R¼øHM¬#ëÄ w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}                   ÅÏµ­¢¼BsÌS)©
+FX Handler    &   E)Àa wçmàQ ë91VºI·*÷Ëî; _zJû8  Cõ0   ?              ?              ?                     Öv sì(? Ájåzj_ÇN·JÿúMã /bº/ ?   ïyÍ     sº     #÷ú q(Ë' /        ¹ç®¤oUÎËI¥º¨u2]U        ÿÿÿÿ /M\6RÅ¿J xÉ¡ ³nHÍ÷}Sªè´öF1>  /        xÉ¡5ËÏs¼7G
+³¹        ÿÿÿÿ /M\Ö# ½Íû é×à¦mM°îñEîW*Ó           Ö# ½Íû /³¡ß¥õCÌ£EÍ           ÖJ ½Íû êWà-®©G³1L^²\s  /    ×Í#/´Ý/HÄ¾¡´ã?        ÿÿÿÿ °îì    ÖJ ½Íû åp[JÏJÐ`Å%P  /    ×»ã]	tqCãg-Þ-        ÿÿÿÿ °îì    ÖJ ½Íû  ÷L»~EjI=  /    ×H¹¥ÒjWO¥7cE,À        ÿÿÿÿ °îì    ÖJ ½Íû £¡ìwË?N£	bâ  /    ×¹Ý-·`ËJ£¥¹¹Ü=ó·        ÿÿÿÿ °îì    Ö4½Íû Nt¼çKóì!     ×#ÝfCùÃOcAy¬DÏ        ÿÿÿÿ z¸^×#ÝfCùÃOcAy¬DÏ        ÿÿÿÿ %±þ/×H´úAþîY£û¯/6        ÿÿÿÿ Á6ÖÕ×Î¶Âév]tûÓÀ)à        ÿÿÿÿ Á6ÖÕ×I( ;@Sm~5b         ÿÿÿÿ Á6ÖÕ×¶ÈË7ÈJ Å«¸µ        ÿÿÿÿ Á6ÖÕ×ªÊ.[1·N§Kø·=¬³Ï        ÿÿÿÿ Á6ÖÕ    6RÅ¿# ³ó H´úAþîY£û¯/6           Ö½Íû [ý\òÁL¦BÚ W]  ò    ×I.3}_!çzë	ö        ÿÿÿÿ Á6ÖÕ×#ÝfCùÃOcAy¬DÏ        ÿÿÿÿ èW×,
+î;^àÉº7çK        ÿÿÿÿ Á6ÖÕ×ÔÏ Ìbâ«GT±Ûabÿ         ÿÿÿÿ Á6ÖÕ×åÆæ(ýØM°c
+Nq¡à        ÿÿÿÿ Á6ÖÕ×ZIel Ù®E²Ý¦b        ÿÿÿÿ Á6ÖÕ    6RÅ¿# ³ó ,
+î;^àÉº7çK           Öq ½Íû Õ#ïkjèX¾$OÐv5À  V    ×YÚ"òT®(Q}"¸        ÿÿÿÿ %±þ/×YÚ"òT®(Q}"¸        ÿÿÿÿ z¸^    ÖJ ½Íû ·"Q¨Â|5$vêÉ  /    ×YÚ"òT®(Q}"¸        ÿÿÿÿ èW    Ö ½Íû ³¿Ö`7FbL­d=VK]  }    ×.â~Eü¬²Ä¢¬¯        ÿÿÿÿ %±þ/×.â~Eü¬²Ä¢¬¯        ÿÿÿÿ z¸^×opÝ ÎëDï)"@R        ÿÿÿÿ °îì    Öq ½Íû ¸¦/QPG±+ÔgÜÞ  V    ×.â~Eü¬²Ä¢¬¯        ÿÿÿÿ èW×[iÿÔN¢¥,/¨0ó        ÿÿÿÿ °îì    Öq ½Íû ÊatÖ/q¼I¹ÌB%Ú,  V    ×CÐ­¥Ê6kZ¥õiöúxb        ÿÿÿÿ °îì×¿ÇxæI¦^¡öF        ÿÿÿÿ ®S    Öq ½Íû Ãij B5/B§ßGÒ  V    × 1áó*T±1TþÊJ¢        ÿÿÿÿ °îì×¿ÇxæI¦^¡öF        ÿÿÿÿ èW    Öq ½Íû AãÃ¾_[m|P¦¤  V    ×tUµôÂ¼\¿¯^QM(2Ì        ÿÿÿÿ °îì×Î¿,£<snR¾uDð¤        ÿÿÿÿ ®S    Öq ½Íû ¼c¬¸WÖqê
+o¶  V    ×o¿ôõë[âðfñ1
+        ÿÿÿÿ °îì×Î¿,£<snR¾uDð¤        ÿÿÿÿ èW    Öæ ½Íû ¿©×dÝM¾«÷¦  Ë    ×mìqû±cK³«AÖb        ÿÿÿÿ ÿá× öto[ÈSÞQ×yûS        ÿÿÿÿ ÿá×}ãñàN_@ñ        ÿÿÿÿ ÿá×-&0½ë<Ctní±F        ÿÿÿÿ ÿá×ºÙË¼>E³hGþg        ÿÿÿÿ ÿá    Öæ ½Íû Í,ÓahNº¥Èé?ý©  Ë    ×mìqû±cK³«AÖb        ÿÿÿÿ ñò3× öto[ÈSÞQ×yûS        ÿÿÿÿ ñò3×}ãñàN_@ñ        ÿÿÿÿ ñò3×-&0½ë<Ctní±F        ÿÿÿÿ ñò3×ºÙË¼>E³hGþg        ÿÿÿÿ ñò3    Öæ ½Íû Îs\]a"ógÉº¦  Ë    ×º¸82^ rs¹èÒ³        ÿÿÿÿ ÿá×6<QÊcàæR?ñ1û0        ÿÿÿÿ ÿá×ªæ8A5^&jÎ oÍ        ÿÿÿÿ ÿá×g[æ§8«W¨ 0­.
+        ÿÿÿÿ ÿá×#ÚÉoUZ¼îCDÚnÞ        ÿÿÿÿ ÿá    Öæ ½Íû xïÎÜmT¼0úÚÛt  Ë    ×º¸82^ rs¹èÒ³        ÿÿÿÿ ñò3×6<QÊcàæR?ñ1û0        ÿÿÿÿ ñò3×ªæ8A5^&jÎ oÍ        ÿÿÿÿ ñò3×g[æ§8«W¨ 0­.
+        ÿÿÿÿ ñò3×#ÚÉoUZ¼îCDÚnÞ        ÿÿÿÿ ñò3    Öq ½Íû éHÍ>TvàoÉsé  V    ×|Õ$©t?U¥ºÆ©¦jÊ        ÿÿÿÿ z¸^×|Õ$©t?U¥ºÆ©¦jÊ        ÿÿÿÿ %±þ/    ÖJ ½Íû hÓ»´~\¤&0b¿=¦  /    ×|Õ$©t?U¥ºÆ©¦jÊ        ÿÿÿÿ èW    Öq ½Íû ÌZ4ñûQ¬yÝ>.t>8  V    ×AO¦AS¼-b¡Æ1        ÿÿÿÿ %±þ/×AO¦AS¼-b¡Æ1        ÿÿÿÿ z¸^    ÖJ ½Íû =m 3+PùÆl¹
+î  /    ×AO¦AS¼-b¡Æ1        ÿÿÿÿ èW    Ö# ½Íû Ða}i0,±UíF«½           Ö# ½Íû ¢_Ï§$3çY: â'{r           ÖJ ½Íû aÞe]¬/N§`BV  /    ×&ROÄöR¡ÔÙöæë        ÿÿÿÿ Á6ÖÕ    ÖJ ½Íû %áZÙÓ»LK¤Ê±Ý `K  /    ×ª' 1»¿O¹Ó,Ò+wñá        ÿÿÿÿ °îì    ÖJ ½Íû cãÎ&ÑSH¤»ôªØ'  /    ×ÓudiÝM¾i¸Û        ÿÿÿÿ °îì    Å2C¸ GáÇÛæCH@EºÍøfgµ½ 'P¯ B   Ë:      dÑ=PÜ?  ?ÍZÛ     U§>  ?  ?Z«ú¡ PÜ?tcP=tcP=  ?Òü\   ?tcP=tcP=  ?¨2 PÜ?PÜ?      ?
+f   ?  ?      ?©àmà o?o?tcP=  ?Ä\ñO             ?  ?      ?      ?  ?  ?    ó5?ó5¿   @    ó5?ó5¿  ?    ¶ZO              A  ?      ?      ?   A  ?    ÈË=Ãº~¿   @    ÈË=Ãº~¿  ?    j@Á tæ­' 0[6   ðÁid;¥   ðA/        ã³¸Õ-Ü×eÓH3B¡IIÓð        ÿÿÿÿ /M\6RÅ¿³èí´g' ÄÅ¦%PéÇDÈ0¹Uû5 º1÷2    ?ó'e3     	   IÿZXåp[JÏJÐ`Å%P    ç  ÿÿÿÿ Á6ÖÕIÿZXÚZ$tCíÚ-«/!B    ç  ÿÿÿÿ ±y¾=IÿZX£¡ìwË?N£	bâ    ç  ÿÿÿÿ Á6ÖÕ£©¦ÈKÙ×.9N»½uàsãäØ    ç  RNEG¿  ÉÉ 
+	²#ä{ »	Í  ïyÍ å/® mMÂ       @@    ó?8 ºIäWsº     ò5W Z ¼ Ú×q©,êN  [5  äFV  I)@ 4Ùî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `Xåó®SÁÚZ$tCíÚ-«/!B        ÿÿÿÿ ±y¾=ó®SÁåp[JÏJÐ`Å%P    ç  ÿÿÿÿ Á6ÖÕó®SÁ£¡ìwË?N£	bâ    ç  ÿÿÿÿ Á6ÖÕ5¤®Ñn}ÊUÀ=JsIVB/    ç  RNEG¿  ÉÉ 
+	²#ä{ »	Í  ïyÍ å/® mMÂ       @@    ó?8 ºIäWsº     ò5W Z ¼ Ú×q©,êN  [5  äFV  I)@ 4Ùî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `XåÅ ?~aÃé¨Np/=õ[    ç  RNEG«  ÉÉ 
+	²#ä{ »	Í  ïyÍ     ó?8 ºIäWsº     ò5W Z ¼ Þ?ç,êN  [5  äFV  I)@ ÄLÙî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `Xå    änp- ·û Ô#ä+EþÄEYñáª vó woUû         6RÅ¿ø õBA T½=LT4ÑXT:ìD Ùÿ  Ö    \ÈÚZ$tCíÚ-«/!B        RNEG«  ÉÉ 
+	²#ä{ »	Í  ïyÍ     ó?8 ºIäWsº     ò5W Z ¼ Ú×q©,êN  [5 äFV I)@ 4Ùî   ?{í- Áoãr|ó   ?ºs8    |Ð Æyo­1¹ù}  ù_ `Xå          kOy!/ÎÉN¦f	/vôì$Effects - Client Relative Visibility      E)À¶ wçmàX ÚZ$tCíÚ-«/!B _zJû8  Cõ0   ?              ?              ?            Íåz  V    DRDOÇÛæCH@EºÍøfgµ½        ÿÿÿÿ ÍtøDREOÇÛæCH@EºÍøfgµ½        ÿÿÿÿ Íô    ÖY sì(I ÊÙË¦ÄDiG¸v Úd^ ÄMè/bº/ ?   ïyÍ     sº     #÷ú q(Ë'          û:8½ £%oú­ Í#/´Ý/HÄ¾¡´ã? gu@â   ³áz¾x   8Ñþ    0w¶Üd ¿L" 8Ñþ E   Ez&X ÁÙv
+- (ºÇX 0w¶Ü   ?æÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     ]ú² F   £%oú G            û:8G £%oú7 »ã]	tqCãg-Þ- gu@â   ³áz¾   ]ú² F   £%oú H            û:8½ £%oú­ H¹¥ÒjWO¥7cE,À gu@â   ³áz¾x   8Ñþ    0w¶Üd ¿L" 8Ñþ E   Ez&X ÁÙv
+- (ºÇX 0w¶Ü   ?æÏ¦^ (ºÇX 0w¶Ü     ã     0[6     id;¥     ]ú² F   £%oú I            û:8G £%oú7 ¹Ý-·`ËJ£¥¹¹Ü=ó· gu@â   ³áz¾   ]ú² F   £%oú J            û:8G £%oú7 CÐ­¥Ê6kZ¥õiöúxb gu@â   ³áz¾   ]ú² F   £%oú K            û:8G £%oú7  1áó*T±1TþÊJ¢ gu@â   ³áz¾   ]ú² F   £%oú L            û:8G £%oú7 tUµôÂ¼\¿¯^QM(2Ì gu@â   ³áz¾   ]ú² F   £%oú M            û:8G £%oú7 o¿ôõë[âðfñ1
+ gu@â   ³áz¾   ]ú² F   £%oú N            û:8G £%oú7 j½"l3¥uG¥ÓFW¸ gu@â   ³áz¾   ]ú² O   £%oú P            û:8G £%oú7 gø;ibKv#S3Tz gu@â   ³áz¾   ]ú² O   £%oú Q            û:8G £%oú7 z&àEåY«5»Ue(" gu@â   ³áz¾   ]ú² O   £%oú R            û:8N £%oú> ­^l1^¼ 5{ÑV gu@â   ³áz¾   ]ú² O   £%oú S   -           û:8G £%oú7 opÝ ÎëDï)"@R gu@â   ³áz¾   ]ú² O   £%oú T            û:8G £%oú7 [iÿÔN¢¥,/¨0ó gu@â   ³áz¾   ]ú² O   £%oú U            è~ªÊf èß9V .â~Eü¬²Ä¢¬¯ á[& V   ù^ñ  
+-     §ú
+Ð     ¸Êõ2 å/® mMÂ       `A             è~ªÊf èß9V #ÝfCùÃOcAy¬DÏ á[& W   ù^ñ  
+-     §ú
+Ð     ¸Êõ2 å/® mMÂ       `A             è~ªÊR èß9B YÚ"òT®(Q}"¸ á[& X   ù^ñ  
+-     §ú
+Ð     ¸Êõ2              è~ªÊf èß9V ¿ÇxæI¦^¡öF á[& Y   ù^ñ  
+- å/® mMÂ    ?   ?   ?§ú
+Ð     ¸Êõ2              è~ªÊf èß9V Î¿,£<snR¾uDð¤ á[& Z   ù^ñ  
+- å/® mMÂ    ?   ?   ?§ú
+Ð     ¸Êõ2              è~ªÊf èß9V |Õ$©t?U¥ºÆ©¦jÊ á[& [   ù^ñ  
+- å/® mMÂ    @   @   @§ú
+Ð     ¸Êõ2              è~ªÊf èß9V AO¦AS¼-b¡Æ1 á[& \   ù^ñ  
+- å/® mMÂ    @   @   @§ú
+Ð     ¸Êõ2              è~ªÊR èß9B Â^{zæJ á[& ]   ù^ñ  
+-     §ú
+Ð     ¸Êõ2              û:8G £%oú7 ís;}9=¾G©ø·DcB0 gu@â   ³áz¾   ]ú² O   £%oú ^            û:8G £%oú7 ª' 1»¿O¹Ó,Ò+wñá gu@â   ³áz¾   ]ú² O   £%oú _            û:8G £%oú7 ÓudiÝM¾i¸Û gu@â   ³áz¾   ]ú² O   £%oú `            6RÅ¿J ³ó &ROÄöR¡ÔÙöæë  /    õÔnÝís;}9=¾G©ø·DcB0        ÿÿÿÿ °îì           Æ¶>÷}»~A¦;¿	åEffect - Shield Hit      E)Àh wçmàX òMrãVF;óM^ö _zJû8  Cõ0   ?              ?              ?       À    Íåz           ÖY sì(I ý`aÔF¸ÆÄssZbO Úd^ ÄMè/bº/ ?   ïyÍ     sº     #÷ú q(Ë'          Ý]T>úJU.GPó¬|¨ïL¤ÉTb­¢ Ý]T +   ÞRÄ (ºÇX 0w¶Ü >gu@â> Q] T¬4÷ 0w¶Ü                 üÇÃØÖT4  z¸^¨T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BRZ16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü WN=bÑ;÷>  ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü é<ª0=äL?  ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü gm+=Óo>1:?  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü ú­=ñ&?éúÀ?  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹»     ã     0[6     id;¥     ­u^:Z16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü gY>"Ýc;"Ýc;  ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü  ê?l<ÏXM=  ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü í?Ú<ØÁ=  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü éúÀ?ú­=ú­=  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹»     ã     0[6     id;¥     lÜkZ16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü ü#>ª?V=      ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü ÊX±>´¶e>òÅ;  ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü Ç«?cÜ>?ÇÏ<  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü ½ç±?y+?½f3=  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹»     ã     0[6     id;¥     »§Z16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü ü#>ª?V=      ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü ÊX±>´¶e>òÅ;  ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü Ç«?cÜ>?ÇÏ<  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü ½ç±?y+?½f3=  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹»     ã     0[6     id;¥     Qu±8 T¬4÷ 0w¶Ü                 M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     ·aW  ÆÒñ
+-B {[­K z¸^ å/® mMÂ    @
+×£=   @Qu±8 å/® mMÂ    A   @   A§ú
+Ð     ¸Êõ2     _øU ¶dëO k'ÎñwA¤ÿKm.õ) w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}                   ~,*iíT¥Ó.6HEffect - Beam Shield Hit      E)Àh wçmàX ´}©"§«-P-¸Ñhg _zJû8  Cõ0   ?              ?              ?       À    Íåz           Ý]TúJU»W8]YoÔW Ý]T +   ÞRÄ     ù^ñ  gu@âf Q] T¬4÷ 0w¶Ü                 üÇÃØþõh! ¯ö¨T C9ã, T¬4÷ 0w¶Ü   ?  ?  ?  ?W©BRZ16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü WN=bÑ;÷>  ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü é<ª0=äL?  ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü gm+=Óo>1:?  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü ú­=ñ&?éúÀ?  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹»     ã     0[6     id;¥     ­u^:Z16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü gY>"Ýc;"Ýc;  ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü  ê?l<ÏXM=  ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü í?Ú<ØÁ=  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü éúÀ?ú­=ú­=  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹»     ã     0[6     id;¥     lÜkZ16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü ü#>ª?V=      ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü ÊX±>´¶e>òÅ;  ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü Ç«?cÜ>?ÇÏ<  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü ½ç±?y+?½f3=  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹»     ã     0[6     id;¥     »§Z16G	 4áÄD (ºÇX 0w¶Ü     æÀ] T¬4÷ 0w¶Ü ü#>ª?V=      ?°ÍÝ (ºÇX 0w¶Ü ÍÌL>¯·ÉÄ T¬4÷ 0w¶Ü ÊX±>´¶e>òÅ;  ?Êª (ºÇX 0w¶Ü    ?9Î³ T¬4÷ 0w¶Ü Ç«?cÜ>?ÇÏ<  ?»®4 (ºÇX 0w¶Ü   ?ª- T¬4÷ 0w¶Ü ½ç±?y+?½f3=  ?Óén ¿L" 8Ñþ    Ez&X v¢ë½
+- (ºÇX 0w¶Ü   ?æÏ¦^ %R´ @ÊÐ     p ¹»     ã     0[6     id;¥     ?ß. Ë-ñä øì, #Õ
+-    Áã   ?æÏ¦^   ?r* (ºÇX 0w¶Ü   ?M4 T¬4÷ 0w¶Ü -[>-[>-[>  ?Ó¢  ¾,Z     ·aW  ÆÒñ
+-v ªÓ¨ z¸^ å/® mMÂ    @ÍÌÌ=   @Qu±8 å/® mMÂ    A  ?   AÓé. Ë-ñä øì, #Õ
+-    Aã   ?æÏ¦^     §ú
+Ð     ¸Êõ2     _øU ¶dëO &]E²¼9Rýóã w1    Ý{²È   ?  ?  ?  ?TóÙ©     ©8     n§c}                   Ôwâà×O¡ à`ìâm*SFX - Warp In      E)Àh wçmàX n}ÊUÀ=JsIVB/ _zJû8  Cõ0   ?              ?              ?            Íåz           è~ªÊ\ èß9L :»ÝÂäØbI³N1K[Ì á[& a   >ðÍ ¨Z¾    @
+-     §ú
+Ð     ¸Êõ2              û:8N £%oú> U^Îò@Ceeÿú{« gu@â   ³áz¾   ]ú² F   £%oú b   YR
+ê                 ©!Jm¸BÄ5})ÅSFX - Warp Out      E)Àh wçmàX ÈKÙ×.9N»½uàsãäØ _zJû8  Cõ0   ?              ?              ?            Íåz           è~ªÊ\ èß9L ¸ôýëU}ChµFÚ}ý á[& a   >ðÍ ¨Z¾    @
+-     §ú
+Ð     ¸Êõ2              û:8N £%oú> l.Ó=NµÞóÚ´e4 gu@â   ³áz¾   ]ú² F   £%oú c   YR
+ê                 ºTPÂ<F½O¿§yÔaFX - Level Up      E)Àh wçmàX ^eçyI¼dØ?ô _zJû8  Cõ0   ?              ?              ?            Íåz           ÖK sì(; ÑùùåLÎèÅ;d¤¿ Úd^ ÄMè/bº/    ïyÍ     sº              è~ªÊp èß9` õ ²!óIá½w¤ë á[& d   >ðÍ ¨Z¾    @
+- å/® mMÂ ???§ú
+Ð     ¸Êõ2                     ¨ óCÖM=DÞÆK Effect - Destruction - SGPR LOAD      E)Àh wçmàX ~aÃé¨Np/=õ[ _zJû8  Cõ0   ?              ?              ?            Íåz           Öh sì(1 ­lqµF_yw£A± /bº/ ?   ïyÍ     sº     /        ¹ç®ë91VºI·*÷Ëî;        ÿÿÿÿ /M\á±# DZ Ì>Il·GJPeu:1Ð           é¯* ÁeðÛ D¬³aÜÙJ¬c1ÞÚ h ÂG±U           tì4 5õ*$ ï× øfM£¬¢}ÖwYÁ ¦7 ºD; e            Ö# xÉ¡ ²fmcÐTA¥÷ÅnÊ                  æ9%ÜIU"VãXP Floater Template      E)Àz wçmàj -Ü×eÓH3B¡IIÓð _zJûJ  
+-   @  @  ?Cõ0   ?              ?              ?            Íåz           ¿Dí/ ³ÁÍ` ´ðñ¬LÙo± il  f            MÉ! _ ÓÈO PÁW @½_h}2ò &< B   pE\³ g   Ù· Òu6^m¼u§ aMICj5Ñ 
+   ù¹             $QÀ_ =/kÐO kñýPÃF6GÉ£¤Z 
+-     §ú
+Ð å/® mMÂ   ´Â  4C    ó?8 p	X%¸Êõ2              Ö- ê( °aµ{¥Gi+WÃõà AèSý                 '
+    GUID: 00000006-aafd-57c9-c813-c5548b871213
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 0

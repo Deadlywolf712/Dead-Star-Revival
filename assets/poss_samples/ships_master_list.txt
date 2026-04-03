@@ -1,0 +1,147 @@
+======================================================================
+POSS File: entry_00091.poss
+======================================================================
+Magic:        POSS30RV
+String Count: 3379
+
+--- Resource Paths (3360) ---
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0000.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0000_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0000_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0000_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0001.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0001_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0001_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0001_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0002.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0002_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0002_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0002_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0003.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0003_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0003_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0003_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0004.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0004_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0004_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0004_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0005.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0005_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0005_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0005_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0006.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0006_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0006_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0006_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0007.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0007_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0007_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0007_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0008.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0008_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0008_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0008_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0010.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0010_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0010_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0010_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0011.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0011_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0011_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0011_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0012.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0012_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0012_ui_package.cgpr
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0012_hangar_package.cgpr
+  [cmat] $/needle/ships/racea/scout/geometry/_win/ship_racea_scout_paint0013.cmat
+  [cgpr] $/needle/ships/racea/scout/script/_win/ship_racea_scout_paint0013_package.cgpr
+  ... (3310 more)
+
+--- Events/Names (15) ---
+  SHIP_RACEA_SCOUT_NAME
+  SHIP_RACEB_SCOUT_NAME
+  SHIP_RACEC_SCOUT_NAME
+  SHIP_RACED_SCOUT_NAME
+  SHIP_RACEE_SCOUT_NAME
+  SHIP_RACEA_RAIDER_NAME
+  SHIP_RACEB_RAIDER_NAME
+  SHIP_RACEC_RAIDER_NAME
+  SHIP_RACED_RAIDER_NAME
+  SHIP_RACEE_RAIDER_NAME
+  SHIP_RACEA_FRIGATE_NAME
+  SHIP_RACEB_FRIGATE_NAME
+  SHIP_RACEC_FRIGATE_NAME
+  SHIP_RACED_FRIGATE_NAME
+  SHIP_RACEE_FRIGATE_NAME
+
+--- Localization Keys (3) ---
+  ~REWARD_UNLOCKCONDITION_START~
+  ~REWARD_UNLOCKCONDITION_DLC_SHIP_RACED~
+  ~REWARD_UNLOCKCONDITION_DLC_SHIP_RACEE~
+
+--- Object Hierarchy ---
+Object: 'Ships Master List - 0'
+  GUID: 2dff3f29-8791-574d-8de3-d75a490aac17
+  Version: 6, Total Components in Tree: 5
+  Field A: 0, Field B: 2
+  Component:
+    Type Hash: 0xc029451e
+    GUID: a5b74e53-c451-5981-bbeb-bc0a0ac0f2a2
+    Editor ID: 610077e76de0510001
+    Body Size: 9200 bytes
+    Transform:
+      [    1.0000     0.0000     0.0000     0.0000]
+      [    1.0000     0.0000     0.0000     0.0000]
+      [    1.0000     0.0000     0.0000     0.0000]
+  Object: 'Ships Master List - 1'
+    GUID: c27390b2-d14a-524f-90d5-873b9fa113a5
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 2
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 003ce091-5a66-5fd9-9e5b-31d226d5b34f
+      Editor ID: 610077e76de0510001
+      Body Size: 9200 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+  Object: 'Ships Master List - 2'
+    GUID: 98b9f431-797c-5844-854e-d3a354991fad
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 2
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 814d91f7-72c9-5707-ae36-e97b47241d19
+      Editor ID: 610077e76de0510001
+      Body Size: 9200 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+  Object: 'Ships Master List - 3'
+    GUID: 73f8aace-f8d0-54cc-8401-e438d5074275
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 2
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 4d2c7329-a061-5a6f-b20a-e6b5fd5b381d
+      Editor ID: 610077e76de0510001
+      Body Size: 9200 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+  Object: 'Ships Master List - 4'
+    GUID: 5aef6744-c757-5616-9665-be8ee40b31dc
+    Version: 6, Total Components in Tree: 0
+    Field A: 0, Field B: 2
+    Component:
+      Type Hash: 0xc029451e
+      GUID: 86c923cc-0c5a-5931-9877-c00725fc08f9
+      Editor ID: 610077e76de0510001
+      Body Size: 9208 bytes
+      Transform:
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
+        [    1.0000     0.0000     0.0000     0.0000]
